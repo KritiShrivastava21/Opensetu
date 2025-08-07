@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>OpenSetu Beta Software Alert</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Inter", sans-serif;
+    }
+
+    .about-wrapper {
+      background-color: #F7F9FB;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .white-tilted-layer {
+      position: absolute;
+      top: 60px;
+      width: 100%;
+      height: 1300px;
+      background: white;
+      transform: skewY(-5deg);
+      z-index: 0;
+    }
+
+    .blue-shapes {
+      position: absolute;
+      top: -45px;
+      right: 0;
+      z-index: 1;
+      transform: skewY(-5deg);
+    }
+
+    .blue1, .blue2 {
+      height: 25px;
+      transform: skewX(-30deg);
+      position: absolute;
+    }
+
+    .blue1 {
+      background-color: #80E9FF;
+      top: 50px;
+      right: 10px;
+      z-index: 1;
+      width: 420px;
+    }
+
+    .blue2 {
+      background-color: #185ADB;
+      top: 70px;
+      right: 220px;
+      z-index: 2;
+      width: 120px;
+    }
+
+    .section {
+      position: relative;
+      max-width: 900px;
+      padding: 120px 24px 80px;
+      margin: auto;
+      z-index: 2;
+    }
+
+    h1 {
+      font-size: 2.3rem;
+      font-weight: 700;
+      color: #032E83;
+      margin-bottom: 40px;
+    }
+
+    h2 {
+      font-size: 1.3rem;
+      color: #032E83;
+      margin-top: 40px;
+      margin-bottom: 16px;
+      font-weight: 600;
+    }
+
+    p {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: #425466;
+      margin-bottom: 16px;
+    }
+
+    a {
+      color: #185ADB;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2rem;
+      }
+      h2 {
+        font-size: 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <section class="about-wrapper">
+    <div class="white-tilted-layer"></div>
+    <div class="blue-shapes">
+      <div class="blue1"></div>
+      <div class="blue2"></div>
+    </div>
+
+    <section class="section">
+      <h1>Beta Software Alert</h1>
+
+      <p>
+        OpenSetu is currently in beta and remains an experimental initiative. While we strive for a seamless experience, please proceed with caution as bugs and unexpected issues may occur.
+      </p>
+
+      <h2>Use Legacy Internet for Critical Transactions</h2>
+      <p>
+        For any interactions involving financial transactions, sensitive personal information, or mission-critical services, we strongly recommend using the old internet for now.
+      </p>
+
+      <h2>Language Support is Evolving</h2>
+      <p>
+        We’ve used publicly available tools and best-effort transliteration for domain names in various Indian languages. If you notice any misspellings or improvements, please write to us—we welcome your help in making this better.
+      </p>
+
+      <h2>Domain Name Length</h2>
+      <p>
+        We have transliterated English acronyms into regional scripts. However, this tends to make the regional domain name really long, thus defeating the point of using an abbreviation. What should vernacular domains read and sound like? Should we write “irctc.co.in” as आईआरसीटीसी.को.भ or just simply write रेलटिकट.भ? This is a conversation we are having, and you are welcome to join us on <a href="https://x.com/opensetu" target="_blank">X (@opensetu)</a>.
+      </p>
+
+      <h2>Open & Forkable</h2>
+      <p>
+        OpenSetu is fully open-source. Anyone is free to run their own DNS-over-HTTPS (DoH) server or contribute to the ecosystem. You’ll find more details in our <a href="/documentation">Documentation</a>.
+      </p>
+
+      <h2>No Tracking. No Surveillance. No Monetization.</h2>
+      <p>
+        We do not log, track, store, sell, or monetize any user data. Should regulations require otherwise in the future, we will adapt transparently and communicate with users in advance.
+      </p>
+
+      <h2>Suggest a Service</h2>
+      <p>
+        If you're a brand, government department, or platform owner and wish to see your site listed on Desh ka Internet, please fill out this form.
+      </p>
+
+      <h2>Takedown Requests</h2>
+      <p>
+        We sincerely hope you appreciate the additional traffic from vernacular redirects. But if you'd like us to remove a particular link, kindly email us at <a href="mailto:legal@opensetu.in">legal@opensetu.in</a> and we will act promptly.
+      </p>
+
+      <h2>Compliance and Respect</h2>
+      <p>
+        We deeply respect intellectual property rights, brand identities, and all applicable Government of India regulations. Any oversight is unintentional, and we are happy to correct it quickly.
+      </p>
+
+      <h2>Built by a Small Team</h2>
+      <p>
+        OpenSetu is built by a small, passionate team of four, juggling everything from code, community and sleep. We’re bootstrapped, stretched thin and swamped, but we care deeply. If you spot an issue, please be kind—we’ll try and fix it as soon as we can.
+      </p>
+
+      <h2>Contact Us</h2>
+      <p>
+        Email: xyz<br>
+        Suggestions: xyz
+      </p>
+    </section>
+  </section>
+
+</body>
+</html>

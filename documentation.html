@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>OpenSetu Documentation</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Inter", sans-serif;
+    }
+
+    .about-wrapper {
+      background-color: #F7F9FB;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .white-tilted-layer {
+      position: absolute;
+      top: 60px;
+      width: 100%;
+      height: 1300px;
+      background: white;
+      transform: skewY(-5deg);
+      z-index: 0;
+    }
+
+    .blue-shapes {
+      position: absolute;
+      top: -45px;
+      right: 0;
+      z-index: 1;
+      transform: skewY(-5deg);
+    }
+
+    .blue1, .blue2 {
+      height: 25px;
+      transform: skewX(-30deg);
+      position: absolute;
+    }
+
+    .blue1 {
+      background-color: #80E9FF;
+      top: 50px;
+      right: 10px;
+      z-index: 1;
+      width: 420px;
+    }
+
+    .blue2 {
+      background-color: #185ADB;
+      top: 70px;
+      right: 220px;
+      z-index: 2;
+      width: 120px;
+    }
+
+    .section {
+      position: relative;
+      max-width: 900px;
+      padding: 120px 24px 80px;
+      margin: auto;
+      z-index: 2;
+    }
+
+    h1 {
+      font-size: 2.3rem;
+      font-weight: 700;
+      color: #032E83;
+      margin-bottom: 40px;
+    }
+
+    h2 {
+      font-size: 1.4rem;
+      color: #032E83;
+      margin-top: 40px;
+      margin-bottom: 16px;
+      font-weight: 600;
+    }
+
+    p {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: #425466;
+      margin-bottom: 16px;
+    }
+
+    a {
+      color: #185ADB;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    ul {
+      padding-left: 20px;
+      margin-bottom: 24px;
+    }
+
+    li {
+      margin-bottom: 12px;
+      font-size: 0.95rem;
+      color: #425466;
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2rem;
+      }
+      h2 {
+        font-size: 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <section class="about-wrapper">
+    <div class="white-tilted-layer"></div>
+    <div class="blue-shapes">
+      <div class="blue1"></div>
+      <div class="blue2"></div>
+    </div>
+
+    <section class="section">
+      <h1>Documentation</h1>
+
+      <h2>OpenSetu: How It Works</h2>
+      <p>
+        OpenSetu is powered by <strong>DNS over HTTPS (DoH)</strong>, a network protocol that resolves domain names securely over HTTPS. DoH enhances privacy and security by preventing intermediaries from spying on or tampering with DNS queries.
+      </p>
+
+      <h2>Bharat ka Internet</h2>
+      <p>
+        Bharat ka Internet is built on <strong>Handshake</strong>, an open-source, decentralized naming protocol that serves as an alternative root zone for the internet. It enables censorship-resistant, tamper-proof domain resolution — the backbone of our internet.
+      </p>
+      <p>
+        In the near future, we also plan to support protocols like <strong>ENS (Ethereum Name Service)</strong> and <strong>IPFS (InterPlanetary File System)</strong> to enable a more open and interoperable web.
+      </p>
+
+      <h2>Build Your Own DoH</h2>
+      <p>
+        Anyone can build a DoH resolver to access and extend the Bharatiya Internet — be it a school, university, startup, non-profit, or government agency. <br>
+        <strong>OpenSetu</strong> is just one instance; <em>you can run your own.</em>
+      </p>
+
+      <h2>Explore the Stack</h2>
+      <ul>
+        <li>🧰 <strong>Docker DoH Server:</strong> <a href="https://github.com/satishweb/docker-doh" target="_blank">https://github.com/satishweb/docker-doh</a></li>
+        <li>🌐 <strong>Handshake (HNS) Docs:</strong> <a href="https://hsd-dev.org/" target="_blank">https://hsd-dev.org/</a></li>
+        <li>🦊 <strong>Ethereum Name Service (ENS):</strong> <a href="https://ens.domains/" target="_blank">https://ens.domains/</a></li>
+        <li>📦 <strong>IPFS: InterPlanetary File System:</strong> <a href="https://ipfs.tech/" target="_blank">https://ipfs.tech/</a></li>
+      </ul>
+    </section>
+  </section>
+
+</body>
+</html>

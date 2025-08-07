@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>OpenSetu About Section</title>
+  <style>
+    :root {
+      --max-width: 1200px;
+      --gutter: 24px;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Inter", sans-serif;
+      color: #1F2937;
+      background: #fff;
+    }
+    .about-wrapper {
+      background-color: #F7F9FB;
+      position: relative;
+      overflow: hidden;
+    }
+    .white-tilted-layer {
+      position: absolute; top: 60px;
+      width: 100%; height: 1300px;
+      background: white;
+      transform: skewY(-5deg);
+      z-index: 0;
+    }
+    .blue-shapes {
+      position: absolute; top: -45px; right: 0;
+      z-index: 1; transform: skewY(-5deg);
+    }
+    .blue1, .blue2 { position: absolute; transform: skewX(-30deg); }
+    .blue1 {
+      background-color: #80E9FF;
+      width: 35vw; max-width: 420px;
+      height: 25px; top: 50px; right: 10px;
+      z-index: 1;
+    }
+    .blue2 {
+      background-color: #185ADB;
+      width: 10vw; max-width: 120px;
+      height: 25px; top: 70px; right: 200px;
+      z-index: 2;
+    }
+    .section {
+      position: relative;
+      max-width: var(--max-width);
+      padding: 8rem var(--gutter) 4rem;
+      margin: 0 auto;
+      z-index: 2;
+    }
+    .about-heading {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #032E83;
+      margin: 0 0 1.5rem;
+      text-align: left;
+    }
+    .top-container {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      justify-content: center;
+      margin-bottom: 4rem;
+    }
+    .top-text {
+      flex: 1 1 320px;
+      max-width: 500px;
+      text-align: left;
+    }
+    .top-text .highlight {
+      color: #0A55A7;
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+    .top-text h2 {
+      font-size: 2rem;
+      font-weight: 600;
+      line-height: 1.3;
+      margin: 0.5rem 0 1.5rem;
+      color: #032E83;
+    }
+    .top-text p {
+      color: #425466;
+      font-size: 1rem;
+      line-height: 1.5;
+      margin-bottom: 1rem;
+    }
+    .top-image {
+      flex: 0 1 320px;
+      max-width: 320px;
+    }
+    .top-image img {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 1/1;
+      object-fit: cover;
+      border-radius: 12px;
+      display: block;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+      background: #fff;
+      padding: 2rem;
+      box-shadow: 0 20px 90px rgba(0,0,0,0.12);
+      border-radius: 15px;
+      justify-items: center;
+    }
+    
+    .grid-box {
+      background: #F5F7FA;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s, box-shadow 0.3s;
+      width: 100%;
+    }
+    .grid-box:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+    }
+    .grid-box h3 {
+      font-size: 1.2rem;
+      color: #032E83;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+    .grid-box p {
+      color: #425466;
+      font-size: 1rem;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* Breakpoints */
+    @media (max-width: 768px) {
+      .section { padding: 6rem var(--gutter) 3rem; }
+      .about-heading {
+        font-size: 2rem;
+        text-align: center;
+      }
+      .top-container { flex-direction: column; }
+      .top-text { text-align: center; }
+      .top-text h2 { font-size: 1.5rem; }
+    }
+    @media (max-width: 480px) {
+      .about-heading { font-size: 1.75rem; }
+      .top-text { font-size: 0.9rem; }
+      .top-text h2 { font-size: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <section class="about-wrapper">
+    <div class="white-tilted-layer"></div>
+    <div class="blue-shapes">
+      <div class="blue1"></div>
+      <div class="blue2"></div>
+    </div>
+
+    <div class="section">
+      <div class="top-container">
+        <div class="top-text">
+          <h1 class="about-heading">About Us</h1>
+          <p class="highlight">One identity at a time</p>
+          <h2>OpenSetu is the bridge to<br>Bharat’s own internet</h2>
+          <p>We enable every Indian to access the web in their mother tongue, no English, no new apps, no gatekeepers.</p>
+          <p>Born from the vision of a free, decentralized, and inclusive internet, OpenSetu lets users simply change their DNS settings to unlock a multilingual web powered by Handshake and rooted in Bharat. It’s the internet on your terms, where domain names aren’t in foreign scripts or centralized control, but in your own language, owned by you.</p>
+          <p>We’re reclaiming the internet from monopolies and giving it back to the people—one name, one language, one identity at a time.</p>
+        </div>
+        <div class="top-image">
+          <img src="img5.png" alt="About Image">
+        </div>
+      </div>
+
+      <div class="grid">
+        <div class="grid-box">
+          <h3>For Builders</h3>
+          <p>OpenSetu is a playground for innovation. From developers building vernacular apps to startups reimagining digital identity, Bharat now has a decentralized foundation ready to be shaped. With native domain names, multilingual login, and an open DNS, you can build services that speak directly to 1.4 billion voices, in their own language.</p>
+        </div>
+        <div class="grid-box">
+          <h3>For Investors</h3>
+          <p>Bharat is the largest chunk of humanity on the open internet. OpenSetu is not just infrastructure, it’s infra-power. We are unlocking the next billion users by removing the language barrier and returning digital ownership to individuals. The ecosystem will reshape everything from Infra tech like OS and Browsers to services like digital identity, payments, commerce, and communication, all riding on Bharat’s most foundational layer: its own internet. Invest in the rails and founders building on it and you invest in the future of digital Bharat.</p>
+        </div>
+        <div class="grid-box">
+          <h3>For Governments</h3>
+          <p>Digital public goods deserve digital public infrastructure. OpenSetu is built with transparency, inclusivity, and sovereignty at its core. We align with the vision of India Stack and empower every citizen to access digital services in their native language. From rural access to national scale, OpenSetu offers governments a safe, sovereign path to full-stack digital inclusion.
+Bharat doesn’t need to catch up to the global internet. With OpenSetu, we leap ahead  in our own language, on our own terms
+</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>
