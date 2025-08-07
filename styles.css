@@ -716,15 +716,15 @@ body.page { position: relative; background:#fff; color:#1F2937; overflow-x:hidde
   }
 
   .cta-inner h2 {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
   }
 
   .cta-grid h3 {
-    font-size: 1.2rem;
+    font-size: 1.05rem;
   }
 
   .cta-desc {
-    font-size: 0.77rem;
+    font-size: 0.68rem;
   }
 
   .cta-inner {
@@ -832,3 +832,4 @@ body.page { position: relative; background:#fff; color:#1F2937; overflow-x:hidde
     gap: 3rem;
   }
 }
+
