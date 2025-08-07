@@ -335,7 +335,60 @@ body.page { position: relative; background:#fff; color:#1F2937; overflow-x:hidde
   }
 
   .hero-image img {
-    height: 50vh;
+    height: 30vh;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    grid-template-columns: 1fr;
+    padding: 2.5rem 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* center the content horizontally */
+  }
+
+  .hero-text {
+    max-width: 100%;
+    width: 100%;
+    padding-left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* center the text block */
+  }
+
+  .hero-title {
+  text-align: left;
+  width: 100%;
+  font-size: 29px;
+  line-height: 38px;
+  padding-left: 0px;
+  padding-top: 10px;
+}
+
+  .hero-lead{
+    margin-left: 0;
+    padding-left: 0;
+    font-size:.87rem; 
+    text-align: left;     /* left-align the text */
+  }
+
+  .btn-primary {
+  margin-top:1.5rem;
+  margin-left: 20px;
+  padding:.6rem .8rem; 
+  font-size:.8rem; 
+  font-weight:600;
+}
+
+  .hero-image {
+    padding-top: .7rem;
+    display: flex;
+    justify-content: center; /* center the image */
+  }
+
+  .hero-image img {
+    height: 30vh;
   }
 }
 
@@ -346,11 +399,12 @@ body.page { position: relative; background:#fff; color:#1F2937; overflow-x:hidde
 /*— Info Sections —*/
 .info-section {
   background: #F7F9FB;
-  padding: 5rem 1.5rem;
-  min-height: 100vh;
+  padding: 5rem 5rem;
+  min-height: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding-bottom: 70px;
 }
 
 .info-wrapper {
@@ -443,7 +497,7 @@ body.page { position: relative; background:#fff; color:#1F2937; overflow-x:hidde
   .info-image {
     
     margin-top: -1rem;
-    max-width: 250px;
+    max-width: 260px;
   }
 }
 
