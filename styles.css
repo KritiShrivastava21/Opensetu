@@ -554,10 +554,10 @@ body.page { position: relative; background:#fff; color:#1F2937; overflow-x:hidde
 /* Blue gradient trapezium layer */
 .cta-gradient-layer {
   position: absolute;
-  bottom: -130px;
+  bottom: -120px;
   left: 0;
   width: 100%;
-  height: 90%;
+  height: 87%;
   background: linear-gradient(to bottom right, #185ADB, #1E40AF);
   transform-origin: bottom left;
   transform: skewY(-5deg);
@@ -711,27 +711,39 @@ body.page { position: relative; background:#fff; color:#1F2937; overflow-x:hidde
 
   .cta-grid {
     grid-template-columns: 1fr;
-    gap: 1rem;
+    gap: 1.7rem;
+    padding-left: 70px;
+    
   }
 
   .cta-inner h2 {
-    font-size: 1.2rem;
+    font-size: 1.6rem;
   }
 
   .cta-grid h3 {
-    font-size: .8rem;
+    font-size: 1.3rem;
   }
 
   .cta-desc {
-    font-size: 0.65rem;
+    font-size: 0.9rem;
   }
+
+  .cta-inner {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1100px;
+  color: #fff;
+  text-align: center;
+  align-items:center;
+}
 
   .cta-section {
   position: relative;
   background: #fff;
   min-height: 90vh;
   overflow: hidden;
-  padding: 4rem 2rem;
+  padding: 4rem 3rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -739,7 +751,7 @@ body.page { position: relative; background:#fff; color:#1F2937; overflow-x:hidde
 
 .cta-gradient-layer {
   position: absolute;
-  bottom: -30px;
+  bottom: -38px;
   left: 0;
   width: 100%;
   height: 95%;
