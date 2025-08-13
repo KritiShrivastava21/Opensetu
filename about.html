@@ -4,6 +4,125 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>OpenSetu About Section</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+  <style>
+    /* Menu bar styling */
+    .top-menu {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      background: #f8f9fa;
+      padding: 12px 40px;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .top-menu a {
+      font-family: 'Inter', sans-serif;
+      color: #333;
+      text-decoration: none;
+      margin-left: 25px;
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+    .top-menu a:hover {
+      color: #007BFF;
+    }
+
+    /* Hamburger button */
+    .menu-toggle {
+      display: none;
+      font-size: 1.5em;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #333;
+    }
+
+    /* Side menu */
+    .side-menu {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      top: 0;
+      right: 0;
+      background-color: #f8f9fa;
+      overflow-x: hidden;
+      transition: 0.3s;
+      padding-top: 60px;
+      z-index: 2000;
+    }
+    .side-menu a {
+      display: block;
+      padding: 10px 20px;
+      color: #333;
+      text-decoration: none;
+      font-family: 'Inter', sans-serif;
+      font-weight: 500;
+    }
+    .side-menu a:hover {
+      color: #007BFF;
+    }
+    .side-menu .close-btn {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      font-size: 2em;
+      text-decoration: none;
+      color: #333;
+    }
+
+    /* Responsive rules */
+    @media (max-width: 768px) {
+      .top-menu a {
+        display: none;
+      }
+      .menu-toggle {
+        display: block;
+        margin-left: auto;
+      }
+    }
+  </style>
+</head>
+<body class="page">
+
+  <!-- Top Menu -->
+  <nav class="top-menu">
+    <a href="index.html">Home</a>
+    <a href="about.html">About Us</a>
+    <a href="beta.html">Legal</a>
+    <a href="documentation.html">Documentation</a>
+    <a href="domain.html">Domain List</a>
+    <button class="menu-toggle" onclick="openMenu()"><i class="fas fa-bars"></i></button>
+  </nav>
+
+  <!-- Side Menu -->
+  <div id="sideMenu" class="side-menu">
+    <a href="javascript:void(0)" class="close-btn" onclick="closeMenu()">&times;</a>
+    <a href="index.html">Home</a>
+    <a href="about.html">About Us</a>
+    <a href="beta.html">Legal</a>
+    <a href="documentation.html">Documentation</a>
+    <a href="domain.html">Domain List</a>
+  </div>
+
+  <script>
+function openMenu() {
+  document.getElementById("sideMenu").style.width = "250px"; // Adjust width as needed
+}
+
+function closeMenu() {
+  document.getElementById("sideMenu").style.width = "0";
+}
+</script>
+
+
+
+
   <style>
     :root {
       --max-width: 1200px;
@@ -172,8 +291,8 @@
           <p class="highlight">One identity at a time</p>
           <h2>OpenSetu is the bridge to<br>Bharat’s own internet</h2>
           <p>We enable every Indian to access the web in their mother tongue, no English, no new apps, no gatekeepers.</p>
-          <p>Born from the vision of a free, decentralized, and inclusive internet, OpenSetu lets users simply change their DNS settings to unlock a multilingual web powered by Handshake and rooted in Bharat. It’s the internet on your terms, where domain names aren’t in foreign scripts or centralized control, but in your own language, owned by you.</p>
-          <p>We’re reclaiming the internet from monopolies and giving it back to the people—one name, one language, one identity at a time.</p>
+          <p>Born from the vision of a free, decentralized, and inclusive internet, OpenSetu let's users simply change their DNS settings to unlock a multilingual web powered by Handshake and rooted in Bharat. It’s the internet on your terms, where domain names aren’t in foreign scripts or centralized control, but in your own language, owned by you.</p>
+          <p>We’re reclaiming the internet from monopolies and giving it back to the people, one name, one language, one identity at a time.</p>
         </div>
         <div class="top-image">
           <img src="img5.png" alt="About Image">
