@@ -4,6 +4,124 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>OpenSetu Documentation</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+
+    <style>
+    /* Menu bar styling */
+    .top-menu {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      background: #f8f9fa;
+      padding: 12px 40px;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .top-menu a {
+      font-family: 'Inter', sans-serif;
+      color: #333;
+      text-decoration: none;
+      margin-left: 25px;
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+    .top-menu a:hover {
+      color: #007BFF;
+    }
+
+    /* Hamburger button */
+    .menu-toggle {
+      display: none;
+      font-size: 1.5em;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #333;
+    }
+
+    /* Side menu */
+    .side-menu {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      top: 0;
+      right: 0;
+      background-color: #f8f9fa;
+      overflow-x: hidden;
+      transition: 0.3s;
+      padding-top: 60px;
+      z-index: 2000;
+    }
+    .side-menu a {
+      display: block;
+      padding: 10px 20px;
+      color: #333;
+      text-decoration: none;
+      font-family: 'Inter', sans-serif;
+      font-weight: 500;
+    }
+    .side-menu a:hover {
+      color: #007BFF;
+    }
+    .side-menu .close-btn {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      font-size: 2em;
+      text-decoration: none;
+      color: #333;
+    }
+
+    /* Responsive rules */
+    @media (max-width: 768px) {
+      .top-menu a {
+        display: none;
+      }
+      .menu-toggle {
+        display: block;
+        margin-left: auto;
+      }
+    }
+  </style>
+</head>
+<body class="page">
+
+  <!-- Top Menu -->
+  <nav class="top-menu">
+    <a href="index.html">Home</a>
+    <a href="about.html">About Us</a>
+    <a href="beta.html">Legal</a>
+    <a href="documentation.html">Documentation</a>
+    <a href="domain.html">Domain List</a>
+    <button class="menu-toggle" onclick="openMenu()"><i class="fas fa-bars"></i></button>
+  </nav>
+
+  <!-- Side Menu -->
+  <div id="sideMenu" class="side-menu">
+    <a href="javascript:void(0)" class="close-btn" onclick="closeMenu()">&times;</a>
+    <a href="index.html">Home</a>
+    <a href="about.html">About Us</a>
+    <a href="beta.html">Legal</a>
+    <a href="documentation.html">Documentation</a>
+    <a href="domain.html">Domain List</a>
+  </div>
+
+  <script>
+function openMenu() {
+  document.getElementById("sideMenu").style.width = "250px"; // Adjust width as needed
+}
+
+function closeMenu() {
+  document.getElementById("sideMenu").style.width = "0";
+}
+</script>
+
+
   <style>
     body {
       margin: 0;
@@ -136,7 +254,7 @@
 
       <h2>Bharat ka Internet</h2>
       <p>
-        Bharat ka Internet is built on <strong>Handshake</strong>, an open-source, decentralized naming protocol that serves as an alternative root zone for the internet. It enables censorship-resistant, tamper-proof domain resolution — the backbone of our internet.
+        Bharat ka Internet is built on <strong>Handshake</strong>, an open-source, decentralized naming protocol that serves as an alternative root zone for the internet. It enables censorship-resistant, tamper-proof domain resolution. The backbone of our internet.
       </p>
       <p>
         In the near future, we also plan to support protocols like <strong>ENS (Ethereum Name Service)</strong> and <strong>IPFS (InterPlanetary File System)</strong> to enable a more open and interoperable web.
@@ -144,17 +262,15 @@
 
       <h2>Build Your Own DoH</h2>
       <p>
-        Anyone can build a DoH resolver to access and extend the Bharatiya Internet — be it a school, university, startup, non-profit, or government agency. <br>
+        Anyone can build a DoH resolver to access and extend the Bharatiya Internet, be it a school, university, startup, non-profit, or government agency. <br>
         <strong>OpenSetu</strong> is just one instance; <em>you can run your own.</em>
       </p>
 
       <h2>Explore the Stack</h2>
-      <ul>
-        <li>🧰 <strong>Docker DoH Server:</strong> <a href="https://github.com/satishweb/docker-doh" target="_blank">https://github.com/satishweb/docker-doh</a></li>
-        <li>🌐 <strong>Handshake (HNS) Docs:</strong> <a href="https://hsd-dev.org/" target="_blank">https://hsd-dev.org/</a></li>
-        <li>🦊 <strong>Ethereum Name Service (ENS):</strong> <a href="https://ens.domains/" target="_blank">https://ens.domains/</a></li>
-        <li>📦 <strong>IPFS: InterPlanetary File System:</strong> <a href="https://ipfs.tech/" target="_blank">https://ipfs.tech/</a></li>
-      </ul>
+      <p>
+        <strong>Coming Soon...</strong> 
+      </p>
+      
     </section>
   </section>
 
