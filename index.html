@@ -118,18 +118,31 @@
       <h1 class="hero-title">1.4 Billion Voices,<br>
         22 Languages,<br>
         One Internet,<br>
-        &amp; You
+        &amp; You.
       </h1>
       <p class="hero-lead">
-        OpenSetu lets you access the internet in your mother tongue. No app needed.
-        Just change your browser settings, and the web speaks your language.
-        <br><br>It’s infrastructure that connects you to the language-specific versions of the web.
-        Start using OpenSetu: 
-        <span id="opensetu-link">https://pranam.opensetu.in</span>
-        <button id="copy-btn" title="Copy link" style="border:none;background:none;cursor:pointer;font-size:1em;color:#555;">
-          <i class="fa-solid fa-copy"></i>
-        </button>
-      </p>
+  OpenSetu lets you access the internet in your mother tongue. No app needed.
+  Just change your browser settings, and the web speaks your language.
+  <br><br>It’s infrastructure that connects you to the language-specific versions of the web.
+  <br><br>Start using OpenSetu:
+</p>
+
+<div class="link-box">
+  <span id="opensetu-link">https://pranam.opensetu.in</span>
+  <button id="copy-btn" title="Copy link">
+    <i class="fa-solid fa-copy"></i>
+  </button>
+</div>
+
+<script>
+  document.getElementById("copy-btn").addEventListener("click", function() {
+    const text = document.getElementById("opensetu-link").innerText;
+    navigator.clipboard.writeText(text).then(() => {
+      alert("Link copied!");
+    });
+  });
+</script>
+
 
       <button class="btn-primary">Watch how it works →</button>
     </div>
@@ -193,35 +206,36 @@
   <div class="cta-gradient-layer"></div>
 
   <!-- Main content -->
-  <div class="cta-inner">
-    <h2>This is Just the Beginning</h2>
-    <div class="cta-grid">
-      <div>
-        <p class="cta-desc">Aadhaar, DigiLocker, UPI, Google,<br>X, BTC</p>
-        <h3>Public Utilities</h3>
-      </div>
-      <div>
-        <p class="cta-desc">Verifiable digital identities rooted in<br>your mother tongue.</p>
-        <h3>Digital Citizenship</h3>
-      </div>
-      <div>
-        <p class="cta-desc">Domain names and personalized<br>Email IDs in your mother tongue.</p>
-        <h3>Local Identity</h3>
-      </div>
-      <div>
-        <p class="cta-desc">Create your own DoH resolver or<br>services on the Bharat ka Internet</p>
-        <h3>Build on It</h3>
-      </div>
-      <div>
-        <p class="cta-desc">Apps, platforms, and<br>services built for Bharat.</p>
-        <h3>Digital Swadeshi</h3>
-      </div>
-      <div>
-        <p class="cta-desc">Integrate with global Web3<br>infrastructure like .eth and IPFS.</p>
-        <h3>Web3 Integrations</h3>
-      </div>
+<div class="cta-inner">
+  <h2>This is Just the Beginning</h2>
+  <div class="cta-grid">
+    <div>
+      <h3>Public Utilities</h3>
+      <p class="cta-desc">Aadhaar, DigiLocker, UPI, Google,<br>X, BTC</p>
+    </div>
+    <div>
+      <h3>Digital Citizenship</h3>
+      <p class="cta-desc">Verifiable digital identities rooted in<br>your mother tongue.</p>
+    </div>
+    <div>
+      <h3>Local Identity</h3>
+      <p class="cta-desc">Domain names and personalized<br>Email IDs in your mother tongue.</p>
+    </div>
+    <div>
+      <h3>Build on It</h3>
+      <p class="cta-desc">Create your own DoH resolver or<br>services on the Bharat ka Internet</p>
+    </div>
+    <div>
+      <h3>Digital Swadeshi</h3>
+      <p class="cta-desc">Apps, platforms, and<br>services built for Bharat.</p>
+    </div>
+    <div>
+      <h3>Web3 Integrations</h3>
+      <p class="cta-desc">Integrate with global Web3<br>infrastructure like .eth and IPFS.</p>
     </div>
   </div>
+</div>
+
 </section>
 
 
