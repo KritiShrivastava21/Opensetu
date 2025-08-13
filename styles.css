@@ -144,6 +144,10 @@ body.page { position: relative; background:#fff; color:#1F2937; overflow-x:hidde
   font-size:.8rem;
 }
 
+.link-box {
+  margin-left: 90px;
+}
+
 
 .btn-primary {
   margin-left: 90px; 
@@ -203,6 +207,11 @@ body.page { position: relative; background:#fff; color:#1F2937; overflow-x:hidde
 .hero-image img {
   height:55vh;
 }
+
+.link-box {
+  margin-left: 50px;
+}
+
 }
 
 
@@ -240,6 +249,9 @@ body.page { position: relative; background:#fff; color:#1F2937; overflow-x:hidde
   padding-left: 40px;
 }
 
+.link-box {
+  margin-left: 40px;
+}
 
 .btn-primary {
   margin-top:2rem;
@@ -295,6 +307,9 @@ body.page { position: relative; background:#fff; color:#1F2937; overflow-x:hidde
   padding-left: 20px;
 }
 
+.link-box {
+  margin-left: 20px;
+}
 
 .btn-primary {
   margin-top:1.5rem;
@@ -359,6 +374,10 @@ body.page { position: relative; background:#fff; color:#1F2937; overflow-x:hidde
   font-weight:600;
 }
 
+.link-box {
+  margin-left: -120px;
+}
+
   .hero-image {
     padding-top: .7rem;
     display: flex;
@@ -403,6 +422,10 @@ body.page { position: relative; background:#fff; color:#1F2937; overflow-x:hidde
     font-size:.87rem; 
     text-align: left;     /* left-align the text */
   }
+
+  .link-box {
+  margin-left: 0;
+}
 
   .btn-primary {
   margin-top:1.5rem;
