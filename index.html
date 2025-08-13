@@ -7,9 +7,109 @@
   <title>OpenSetu Hero</title>
   <link rel="stylesheet" href="styles.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 
+  <style>
+    /* Menu bar styling */
+    .top-menu {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      background: #f8f9fa;
+      padding: 12px 40px;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .top-menu a {
+      font-family: 'Inter', sans-serif;
+      color: #333;
+      text-decoration: none;
+      margin-left: 25px;
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+    .top-menu a:hover {
+      color: #007BFF;
+    }
+
+    /* Hamburger button */
+    .menu-toggle {
+      display: none;
+      font-size: 1.5em;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #333;
+    }
+
+    /* Side menu */
+    .side-menu {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      top: 0;
+      right: 0;
+      background-color: #f8f9fa;
+      overflow-x: hidden;
+      transition: 0.3s;
+      padding-top: 60px;
+      z-index: 2000;
+    }
+    .side-menu a {
+      display: block;
+      padding: 10px 20px;
+      color: #333;
+      text-decoration: none;
+      font-family: 'Inter', sans-serif;
+      font-weight: 500;
+    }
+    .side-menu a:hover {
+      color: #007BFF;
+    }
+    .side-menu .close-btn {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      font-size: 2em;
+      text-decoration: none;
+      color: #333;
+    }
+
+    /* Responsive rules */
+    @media (max-width: 768px) {
+      .top-menu a {
+        display: none;
+      }
+      .menu-toggle {
+        display: block;
+        margin-left: auto;
+      }
+    }
+  </style>
 </head>
 <body class="page">
+
+  <!-- Top Menu -->
+  <nav class="top-menu">
+    <a href="index.html">Home</a>
+    <a href="about.html">About Us</a>
+    <a href="beta.html">Legal</a>
+    <a href="documentation.html">Documentation</a>
+    <a href="domain.html">Domain List</a>
+    <button class="menu-toggle" onclick="openMenu()"><i class="fas fa-bars"></i></button>
+  </nav>
+
+  <!-- Side Menu -->
+  <div id="sideMenu" class="side-menu">
+    <a href="javascript:void(0)" class="close-btn" onclick="closeMenu()">&times;</a>
+    <a href="index.html">Home</a>
+    <a href="about.html">About Us</a>
+    <a href="beta.html">Legal</a>
+    <a href="documentation.html">Documentation</a>
+    <a href="domain.html">Domain List</a>
+  </div>
 
   <div class="tilted-bg"></div>
 
@@ -17,55 +117,48 @@
     <div class="hero-text">
       <h1 class="hero-title">1.4 Billion Voices,<br>
         22 Languages,<br>
-        One Internet<br>
+        One Internet,<br>
         &amp; You
       </h1>
       <p class="hero-lead">
         OpenSetu lets you access the internet in your mother tongue. No app needed.
-        Just change your browser settings – and the web speaks your language.
+        Just change your browser settings, and the web speaks your language.
         <br><br>It’s infrastructure that connects you to the language-specific versions of the web.
-        Start using OpenSetu: pranam.opensetu.in
+        Start using OpenSetu: 
+        <span id="opensetu-link">https://pranam.opensetu.in</span>
+        <button id="copy-btn" title="Copy link" style="border:none;background:none;cursor:pointer;font-size:1em;color:#555;">
+          <i class="fa-solid fa-copy"></i>
+        </button>
       </p>
-      
+
       <button class="btn-primary">Watch how it works →</button>
     </div>
+
     <div class="hero-image">
       <img src="img1.png" alt="Descriptive text" />
-
     </div>
   </section>
 
-  <section class="info-section"> 
-  <div class="info-wrapper">
-    <div class="text-block">
-      <h2 class="section-title">What Does<br>OpenSetu Do?</h2>
-      <p>OpenSetu is a DNS resolver which allows you to access public goods and government utilities in your mother tongue. Just type the name of your domain in your own language and it will redirect it to the language version of the official site.</p>
-      <p>For example, if you are a Hindi speaker, you can visit pmkisan.gov.in by simply typing <span class="highlight">पीएमकिसान.सर.भा</span> in Devanagari or if you use Tamil just type <span class="highlight">பிஎம்கிசான்.ப</span> etc.</p>
-      <p class="small">Disclaimer: OpenSetu, as of now, redirects only to websites that support language versions via URL. If a website uses JavaScript or cookies to manage language switching, users will need to manually change the language using the site’s language selector.</p>
-    </div>
-    <div class="image-block">
-      <img src="img2.png" alt="OpenSetu Example" class="info-image">
-    </div>
-  </div>
-</section>
+  <script>
+    // Copy button
+    document.getElementById("copy-btn").addEventListener("click", function () {
+      const linkText = document.getElementById("opensetu-link").textContent;
+      navigator.clipboard.writeText(linkText).then(() => {
+        alert("Link copied to clipboard!");
+      }).catch(err => {
+        console.error("Failed to copy: ", err);
+      });
+    });
 
-<section class="info-section">
-  <div class="info-wrapper">
-    <div class="text-block">
-      <h2 class="section-title">Not a translator,<br>OpenSetu is a bridge to<br>the new internet</h2>
-      <p>No English bouncers here. This is Bharat’s own internet, where:</p>
-      <ul class="feature-list">
-        <li>Your language is the default, not the exception.</li>
-        <li>The Old Internet works just as before.</li>
-        <li>Now access websites in your native script.</li>
-        <li>Every citizen gets access to digital public goods.</li>
-      </ul>
-    </div>
-    <div class="image-block">
-      <img src="img3.png" alt="Bridge to New Internet" class="info-image">
-    </div>
-  </div>
-</section>
+    // Side menu functions
+    function openMenu() {
+      document.getElementById("sideMenu").style.width = "250px";
+    }
+    function closeMenu() {
+      document.getElementById("sideMenu").style.width = "0";
+    }
+  </script>
+
 
 <section class="info-section">
   <div class="info-wrapper">
@@ -154,7 +247,7 @@
           <li><a href="#">X (Twitter)</a></li></ul>
       </div>
     </div>
-    <div class="footer-copy">© 2025 OpenSetu. All rights reserved.</div>
+    <div class="footer-copy">© 2025 Agaamin. All rights reserved.</div>
   </footer>
 
   
