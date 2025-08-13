@@ -1,285 +1,363 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>OpenSetu Domain List</title>
-
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Domain Links</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-    /* Menu bar styling */
-    .top-menu {
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-      background: #f8f9fa;
-      padding: 12px 40px;
-      border-bottom: 1px solid rgba(0,0,0,0.05);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-    .top-menu a {
-      font-family: 'Inter', sans-serif;
-      color: #333;
-      text-decoration: none;
-      margin-left: 25px;
-      font-weight: 500;
-      transition: color 0.2s ease;
-    }
-    .top-menu a:hover {
-      color: #007BFF;
-    }
-
-    /* Hamburger button */
-    .menu-toggle {
-      display: none;
-      font-size: 1.5em;
-      background: none;
-      border: none;
-      cursor: pointer;
-      color: #333;
-    }
-
-    /* Side menu */
-    .side-menu {
-      height: 100%;
-      width: 0;
-      position: fixed;
-      top: 0;
-      right: 0;
-      background-color: #f8f9fa;
-      overflow-x: hidden;
-      transition: 0.3s;
-      padding-top: 60px;
-      z-index: 2000;
-    }
-    .side-menu a {
-      display: block;
-      padding: 10px 20px;
-      color: #333;
-      text-decoration: none;
-      font-family: 'Inter', sans-serif;
-      font-weight: 500;
-    }
-    .side-menu a:hover {
-      color: #007BFF;
-    }
-    .side-menu .close-btn {
-      position: absolute;
-      top: 15px;
-      right: 20px;
-      font-size: 2em;
-      text-decoration: none;
-      color: #333;
-    }
-
-    /* Responsive rules */
-    @media (max-width: 768px) {
-      .top-menu a {
-        display: none;
-      }
-      .menu-toggle {
-        display: block;
-        margin-left: auto;
-      }
-    }
-  </style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Style for the copy button */
+        .copy-btn {
+            transition: all 0.2s ease-in-out;
+        }
+        .copy-btn:active {
+            transform: scale(0.95);
+        }
+        /* Custom scrollbar for better aesthetics */
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 10px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+        /* Added for table layout */
+        .table-fixed-layout {
+            table-layout: fixed;
+            width: 100%;
+        }
+    </style>
 </head>
-<body class="page">
+<body class="bg-gray-50 text-gray-800">
 
-  <!-- Top Menu -->
-  <nav class="top-menu">
-    <a href="index.html">Home</a>
-    <a href="about.html">About Us</a>
-    <a href="beta.html">Legal</a>
-    <a href="documentation.html">Documentation</a>
-    <a href="domain.html">Domain List</a>
-    <button class="menu-toggle" onclick="openMenu()"><i class="fas fa-bars"></i></button>
-  </nav>
+    <div class="container mx-auto p-4 sm:p-6 lg:p-8">
+        <header class="text-center mb-8">
+            <h1 class="text-3xl sm:text-4xl font-bold text-gray-900">Domain Links</h1>
+        </header>
 
-  <!-- Side Menu -->
-  <div id="sideMenu" class="side-menu">
-    <a href="javascript:void(0)" class="close-btn" onclick="closeMenu()">&times;</a>
-    <a href="index.html">Home</a>
-    <a href="about.html">About Us</a>
-    <a href="beta.html">Legal</a>
-    <a href="documentation.html">Documentation</a>
-    <a href="domain.html">Domain List</a>
-  </div>
+        <!-- Table container with horizontal scroll on small screens -->
+        <div class="overflow-x-auto bg-white rounded-lg shadow-md custom-scrollbar">
+            <table class="min-w-full divide-y divide-gray-200 table-fixed-layout">
+                <thead class="bg-gray-100">
+                    <tr>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider sticky left-0 bg-gray-100 z-10 w-[320px]">Organization</th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider w-[350px]">Main URL</th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider w-[350px]">English</th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider w-[350px]">Hindi</th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider w-[350px]">Assamese</th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider w-[350px]">Bengali</th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider w-[350px]">Gujarati</th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider w-[350px]">Kannada</th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider w-[350px]">Malayalam</th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider w-[350px]">Marathi</th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider w-[350px]">Odia</th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider w-[350px]">Punjabi</th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider w-[350px]">Tamil</th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider w-[350px]">Telugu</th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider w-[350px]">Urdu</th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider w-[350px]">Khasi</th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider w-[350px]">Mizo</th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider w-[350px]">Nepali</th>
+                    </tr>
+                </thead>
+                <tbody id="table-body" class="bg-white divide-y divide-gray-200">
+                    <!-- Table rows will be inserted here by JavaScript -->
+                </tbody>
+            </table>
+        </div>
+        
+        <!-- Floating notification for copy action -->
+        <div id="copy-notification" class="fixed bottom-5 right-5 bg-green-500 text-white py-2 px-4 rounded-lg shadow-lg opacity-0 transition-opacity duration-300">
+            Link copied to clipboard!
+        </div>
 
-  <script>
-function openMenu() {
-  document.getElementById("sideMenu").style.width = "250px"; // Adjust width as needed
-}
-
-function closeMenu() {
-  document.getElementById("sideMenu").style.width = "0";
-}
-</script>
-
-
-  <style>
-    body {
-      margin: 0;
-      font-family: "Inter", sans-serif;
-    }
-
-    .about-wrapper {
-      background-color: #F7F9FB;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .white-tilted-layer {
-      position: absolute;
-      top: 60px;
-      width: 100%;
-      height: 1250px;
-      background: white;
-      transform: skewY(-5deg);
-      z-index: 0;
-    }
-
-    .blue-shapes {
-      position: absolute;
-      top: -45px;
-      right: 0;
-      z-index: 1;
-      transform: skewY(-5deg);
-    }
-
-    .blue1, .blue2 {
-      height: 25px;
-      transform: skewX(-30deg);
-      position: absolute;
-    }
-
-    .blue1 {
-      background-color: #80E9FF;
-      top: 50px;
-      right: 10px;
-      z-index: 1;
-      width: 420px;
-    }
-
-    .blue2 {
-      background-color: #185ADB;
-      top: 70px;
-      right: 220px;
-      z-index: 2;
-      width: 120px;
-    }
-
-    .section {
-      position: relative;
-      max-width: 900px;
-      padding: 120px 24px 80px;
-      margin: auto;
-      z-index: 2;
-    }
-
-    h1.about-heading {
-      font-size: 2.3rem;
-      font-weight: 700;
-      color: #032E83;
-      margin-top: 0;
-      margin-bottom: 40px;
-    }
-
-    .top-text {
-      text-align: left;
-    }
-
-    .top-text p.highlight {
-      color: #58595a;
-      font-weight: 600;
-      font-size: .9rem;
-      margin-bottom: 30px;
-    }
-
-    .top-text h2 {
-      font-size: 1.5rem;
-      font-weight: 600;
-      color: #032E83;
-      line-height: 1.2;
-      margin-bottom: 17px;
-      margin-top: 40px;
-    }
-
-    .top-text p {
-      color: #425466;
-      font-size: .95rem;
-      font-weight: 400;
-      line-height: 1.6;
-      margin-bottom: 16px;
-    }
-
-    @media (max-width: 768px) {
-      .section {
-        padding: 100px 20px 60px;
-      }
-
-      h1.about-heading {
-        font-size: 1.8rem;
-        margin-bottom: 30px;
-      }
-
-      .top-text h2 {
-        font-size: 1.3rem;
-        margin-top: 32px;
-      }
-
-      .top-text p {
-        font-size: .9rem;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .blue1 {
-        width: 250px;
-        right: 0;
-      }
-
-      .blue2 {
-        width: 80px;
-        right: 150px;
-      }
-
-      .section {
-        padding: 80px 16px 50px;
-      }
-
-      h1.about-heading {
-        font-size: 1.5rem;
-      }
-
-      .top-text h2 {
-        font-size: 1.1rem;
-      }
-    }
-  </style>
-</head>
-<body>
-
-  <section class="about-wrapper">
-    <div class="white-tilted-layer"></div>
-    <div class="blue-shapes">
-      <div class="blue1"></div>
-      <div class="blue2"></div>
     </div>
 
-    <section class="section">
-      <h1 class="about-heading">Domain List</h1>
+    <script>
+        // Data provided by the user
+        const tableData = [
+            { "Organization": "UIDAI (Aadhaar)", "Main URL": "https://uidai.gov.in", "English": "https://uidai.gov.in/en/", "Hindi": "https://uidai.gov.in/hi/", "Assamese": "https://uidai.gov.in/as/", "Bengali": "https://uidai.gov.in/bn/", "Gujarati": "https://uidai.gov.in/gu/", "Kannada": "https://uidai.gov.in/kn/", "Malayalam": "https://uidai.gov.in/ml/", "Marathi": "https://uidai.gov.in/mr/", "Odia": "https://uidai.gov.in/or/", "Punjabi": "https://uidai.gov.in/pa/", "Tamil": "https://uidai.gov.in/ta/", "Telugu": "https://uidai.gov.in/te/", "Urdu": "https://uidai.gov.in/ur/", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Income-Tax e-Filing", "Main URL": "https://www.incometax.gov.in", "English": "https://www.incometax.gov.in/iec/foportal/", "Hindi": "https://www.incometax.gov.in/iec/foportal/hi", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "National Scholarship Portal", "Main URL": "https://scholarships.gov.in", "English": "https://scholarships.gov.in/", "Hindi": "https://scholarships.gov.in/home?lang=hi", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Parivahan (Sarathi / Vahan)", "Main URL": "https://parivahan.gov.in", "English": "https://parivahan.gov.in", "Hindi": "https://parivahan.gov.in/parivahan/hi", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "eCourts Services", "Main URL": "https://services.ecourts.gov.in", "English": "https://services.ecourts.gov.in/ecourtindia_v6/", "Hindi": "https://services.ecourts.gov.in/ecourtindia_v6/?p=main/index&app_lang=hi", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "PM Jan-Dhan Yojana", "Main URL": "https://pmjdy.gov.in", "English": "pmjdy.gov.in", "Hindi": "pmjdy.gov.in/hi", "Assamese": "pmjdy.gov.in/as", "Bengali": "pmjdy.gov.in/bn", "Gujarati": "pmjdy.gov.in/gu", "Kannada": "pmjdy.gov.in/kn", "Malayalam": "pmjdy.gov.in/ml", "Marathi": "pmjdy.gov.in/mr", "Odia": "pmjdy.gov.in/or", "Punjabi": "pmjdy.gov.in/pa", "Tamil": "pmjdy.gov.in/ta", "Telugu": "pmjdy.gov.in/te", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Kerala Tourism", "Main URL": "https://www.keralatourism.org", "English": "https://www.keralatourism.org", "Hindi": "https://www.keralatourism.org/hi/", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "https://www.keralatourism.org/ml/", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "National Portal of India", "Main URL": "https://www.india.gov.in", "English": "https://www.india.gov.in", "Hindi": "https://www.india.gov.in/hi", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Vahan (Vehicle services)", "Main URL": "https://vahan.parivahan.gov.in", "English": "https://vahan.parivahan.gov.in", "Hindi": "https://vahan.parivahan.gov.in/vahan4dashboard/?locale=hi", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "eProcure / CPPP", "Main URL": "https://eprocure.gov.in", "English": "https://eprocure.gov.in", "Hindi": "https://eprocure.gov.in/eprocure/app?lang=hi", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "GeM (Govt e‑Marketplace)", "Main URL": "https://gem.gov.in", "English": "https://gem.gov.in", "Hindi": "https://gem.gov.in/?lang=hi", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "National Career Service", "Main URL": "https://www.ncs.gov.in", "English": "https://www.ncs.gov.in", "Hindi": "https://www.ncs.gov.in/Home/SetCulture?culture=hi-in", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "PM Ujjwala Yojana", "Main URL": "https://pmuy.gov.in", "English": "pmuy.gov.in", "Hindi": "pmuy.gov.in/hi", "Assamese": "pmuy.gov.in/as", "Bengali": "pmuy.gov.in/bn", "Gujarati": "pmuy.gov.in/gu", "Kannada": "pmuy.gov.in/kn", "Malayalam": "pmuy.gov.in/ml", "Marathi": "pmuy.gov.in/mr", "Odia": "pmuy.gov.in/or", "Punjabi": "pmuy.gov.in/pa", "Tamil": "pmuy.gov.in/ta", "Telugu": "pmuy.gov.in/te", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Bharat BillPay", "Main URL": "https://www.bharatbillpay.com", "English": "www.bharatbillpay.com", "Hindi": "www.bharatbillpay.com/hi", "Assamese": "www.bharatbillpay.com/as", "Bengali": "www.bharatbillpay.com/bn", "Gujarati": "www.bharatbillpay.com/gu", "Kannada": "www.bharatbillpay.com/kn", "Malayalam": "www.bharatbillpay.com/ml", "Marathi": "www.bharatbillpay.com/mr", "Odia": "www.bharatbillpay.com/or", "Punjabi": "www.bharatbillpay.com/pa", "Tamil": "www.bharatbillpay.com/ta", "Telugu": "www.bharatbillpay.com/te", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Seva Sindhu (Karnataka)", "Main URL": "https://sevasindhu.karnataka.gov.in", "English": "https://sevasindhu.karnataka.gov.in/Sevasindhu/English", "Hindi": "", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "https://sevasindhu.karnataka.gov.in/Sevasindhu/Kannada", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Aaple Sarkar (Maharashtra)", "Main URL": "https://aaplesarkar.mahaonline.gov.in", "English": "https://aaplesarkar.mahaonline.gov.in/en", "Hindi": "", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "eGramSwaraj", "Main URL": "https://egramswaraj.gov.in", "English": "egramswaraj.gov.in", "Hindi": "egramswaraj.gov.in/?lang=hi", "Assamese": "egramswaraj.gov.in/?lang=as", "Bengali": "egramswaraj.gov.in/?lang=bn", "Gujarati": "egramswaraj.gov.in/?lang=gu", "Kannada": "egramswaraj.gov.in/?lang=kn", "Malayalam": "egramswaraj.gov.in/?lang=ml", "Marathi": "egramswaraj.gov.in/?lang=mr", "Odia": "egramswaraj.gov.in/?lang=or", "Punjabi": "egramswaraj.gov.in/?lang=pa", "Tamil": "egramswaraj.gov.in/?lang=ta", "Telugu": "egramswaraj.gov.in/?lang=te", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "AYUSH (MoA)", "Main URL": "https://ayush.gov.in", "English": "https://ayush.gov.in", "Hindi": "https://ayush.gov.in/hi/", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Aarogya Setu Mobile App", "Main URL": "https://www.mygov.in/aarogya-setu-app", "English": "https://www.mygov.in/aarogya-setu-app", "Hindi": "https://xn--11b3cgab9b4bm5d.xn--h2brj9c/hi/aarogya-setu-app", "Assamese": "https://xn--p5bj3d4cc1c9scc.xn--45br5cyl/aarogya-setu-app", "Bengali": "https://xn--p5b3cgab9b4be4e.xn--45brj9c/aarogya-setu-app", "Gujarati": "https://xn--0dc3cgab9b4bm5d.xn--gecrj9c/aarogya-setu-app", "Kannada": "", "Malayalam": "https://xn--ohc3cgab9b4be4e.xn--3hcrj9c/aarogya-setu-app", "Marathi": "https://xn--d9b3cgab9b4bm5d.xn--s9brj9c/aarogya-setu-app", "Odia": "", "Punjabi": "https://xn--zoc3cgab9b4be4e2cd.xn--fpcrj9c3d/aarogya-setu-app", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Advanced Centre for Treatment, Research and Education in Cancer, Tata Memorial Centre (ACTREC)", "Main URL": "https://actrec.gov.in", "English": "https://actrec.gov.in", "Hindi": "https://actrec.gov.in/index.php?lang=hi", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Advanced Materials and Processes Research Institute (AMPRI), Bhopal", "Main URL": "https://ampri.res.in", "English": "https://ampri.res.in", "Hindi": "https://ampri.res.in/Hindi/", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Advanced Weapons And Equipment India Limited (AWEIL), Kanpur", "Main URL": "https://www.aweil.in", "English": "https://www.aweil.in", "Hindi": "https://www.aweil.in/?lang=hi", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Advocate General Punjab", "Main URL": "https://advocategeneral.punjab.gov.in", "English": "https://advocategeneral.punjab.gov.in", "Hindi": "https://advocategeneral.punjab.gov.in/hi/", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "https://advocategeneral.punjab.gov.in/pa/", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Agricultural Meteorology Division", "Main URL": "https://www.imdagrimet.gov.in", "English": "https://www.imdagrimet.gov.in", "Hindi": "https://imdagrimet.gov.in/indexH.php", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Agricultural and Processed Food Products Export Development Authority", "Main URL": "https://apeda.gov.in", "English": "https://apeda.gov.in/apedawebsite/", "Hindi": "https://apeda.gov.in/apedawebsite/hindi/index.htm", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Air india Assets Holding Limited (AIAHL)", "Main URL": "https://www.aiahl.in", "English": "https://www.aiahl.in", "Hindi": "https://www.aiahl.in/DefaultHindi.aspx", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Airports Authority of India (AAI)", "Main URL": "https://www.aai.aero", "English": "https://www.aai.aero", "Hindi": "https://www.aai.aero/hi", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Ali Yavar Jung National Institute for the Hearing Handicapped (AYJNIHH)", "Main URL": "https://ayjnishd.nic.in", "English": "https://ayjnishd.nic.in", "Hindi": "https://ayjnishd.nic.in/hi", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "All India Council of Technical Education (AICTE)", "Main URL": "https://aicte.gov.in", "English": "https://aicte.gov.in", "Hindi": "https://aicte.gov.in/hi", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "All India Institute of Ayurveda (AIIA), New Delhi", "Main URL": "https://aiia.gov.in", "English": "https://aiia.gov.in", "Hindi": "https://aiia.gov.in/Hi/", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "All India Institute of Medical Sciences (AIIMS), New Delhi", "Main URL": "https://www.aiims.edu", "English": "https://www.aiims.edu", "Hindi": "https://www.aiims.edu/hi.html", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "All India Institute of Medical Sciences (AIIMS), Raipur", "Main URL": "https://www.aiimsraipur.edu.in", "English": "https://www.aiimsraipur.edu.in", "Hindi": "https://www.aiimsraipur.edu.in/hindi", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "All India Institute of Medical Sciences (AIIMS), Rajkot", "Main URL": "https://aiimsrajkot.edu.in", "English": "https://aiimsrajkot.edu.in", "Hindi": "https://aiimsrajkot.edu.in/hi", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "All India Institute of Speech and Hearing (AIISH), Mysore", "Main URL": "https://aiishmysore.in", "English": "https://aiishmysore.in", "Hindi": "https://aiishmysore.in/hi", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "https://aiishmysore.in/kn", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "All India Survey on Higher Education", "Main URL": "https://aishe.gov.in", "English": "https://aishe.gov.in", "Hindi": "https://aishe.gov.in/?lang=hi", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Allahabad Museum, Prayagraj", "Main URL": "https://theallahabadmuseum.com", "English": "https://theallahabadmuseum.com", "Hindi": "https://theallahabadmuseum.com/hindi/", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Andaman And Nicobar State Centre, National Informatics Centre (NIC)", "Main URL": "https://andaman.nic.in", "English": "https://andaman.nic.in", "Hindi": "https://andaman.nic.in/hi/", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Andhra Pradesh Telecom Circle", "Main URL": "https://ap.bsnl.co.in", "English": "https://ap.bsnl.co.in", "Hindi": "https://ap.bsnl.co.in/hi/", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "https://ap.bsnl.co.in/te/", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Antrix Corporation Limited", "Main URL": "https://www.antrix.co.in", "English": "https://www.antrix.co.in", "Hindi": "https://www.antrix.co.in/hi", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Appellate Tribunal for Electricity (APTEL)", "Main URL": "https://aptel.gov.in", "English": "https://aptel.gov.in", "Hindi": "https://aptel.gov.in/hi", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Archaeological Survey of India (ASI), Agra Circle", "Main URL": "https://asiagracircle.in", "English": "https://asiagracircle.in", "Hindi": "https://asiagracircle.in/hindi/index.html", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Ariyalur District Court", "Main URL": "https://ariyalur.dcourts.gov.in", "English": "https://ariyalur.dcourts.gov.in", "Hindi": "", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "https://ariyalur.dcourts.gov.in/ta/", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Artificial Limbs Manufacturing Corporation of India (ALIMCO), Kanpur", "Main URL": "https://www.alimco.in", "English": "https://www.alimco.in", "Hindi": "https://alimco.in/hi/", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Arun Jaitley National Institute of Financial Management", "Main URL": "https://www.ajnifm.ac.in", "English": "https://www.ajnifm.ac.in", "Hindi": "https://www.ajnifm.ac.in/hi", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Arunachal Pradesh State Centre, National Informatics Centre (NIC)", "Main URL": "https://arunachal.nic.in", "English": "https://arunachal.nic.in", "Hindi": "https://arunachal.nic.in/hi/", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Aryabhatta Research Institute of Observational Sciences (ARIES)", "Main URL": "https://www.aries.res.in", "English": "https://www.aries.res.in", "Hindi": "https://www.aries.res.in/hi", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Assam Rifles", "Main URL": "https://assamrifles.gov.in", "English": "https://assamrifles.gov.in/english/", "Hindi": "https://assamrifles.gov.in", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Assam State Centre, National Informatics Centre (NIC)", "Main URL": "https://assam.nic.in", "English": "https://assam.nic.in/", "Hindi": "https://assam.nic.in/hi/", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Automotive Research Association of India (ARAI)", "Main URL": "https://www.araiindia.com", "English": "https://www.araiindia.com", "Hindi": "https://www.araiindia.com/hindi/", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "BENGALURU URBAN COURTS", "Main URL": "https://bengaluru.dcourts.gov.in", "English": "https://bengaluru.dcourts.gov.in", "Hindi": "", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "https://bengaluru.dcourts.gov.in/kn/", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Babasaheb Bhimrao Ambedkar University", "Main URL": "https://www.bbau.ac.in", "English": "https://www.bbau.ac.in", "Hindi": "https://www.bbau.ac.in/H_index.aspx", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Banaras Hindu University, Varanasi", "Main URL": "https://www.bhu.ac.in", "English": "https://www.bhu.ac.in", "Hindi": "https://www.bhu.ac.in/Site/Home/2_2_16_Main-Site", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Banaras Locomotive Works, Varanasi", "Main URL": "https://blw.indianrailways.gov.in", "English": "https://blw.indianrailways.gov.in/index.jsp?lang=0", "Hindi": "https://blw.indianrailways.gov.in", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Bengal Chemicals and Pharmaceuticals Limited", "Main URL": "https://pharma-dept.gov.in/bengal-chemicals-pharmaceuticals-limited", "English": "", "Hindi": "https://pharma-dept.gov.in/hi/bengal-chemicals-pharmaceuticals-limited", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Bhabha Atomic Research Centre (BARC)", "Main URL": "https://www.barc.gov.in", "English": "https://www.barc.gov.in", "Hindi": "https://www.barc.gov.in/hindi/index.html", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Bhakra Beas Management Board (BBMB)", "Main URL": "https://bbmb.gov.in", "English": "https://bbmb.gov.in/index.htm", "Hindi": "https://bbmb.gov.in/index-hi.htm", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Bharat Broadband Network Limited (BBNL)", "Main URL": "https://bbnl.nic.in", "English": "https://bbnl.nic.in", "Hindi": "https://bbnl.nic.in/index.aspx?langid=2", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Bharat Coking Coal Limited (BCCL)", "Main URL": "https://www.bcclweb.in", "English": "https://www.bcclweb.in/?page_id=3678&lang=en", "Hindi": "https://www.bcclweb.in", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Bharat Dynamics Limited (BDL)", "Main URL": "https://bdl-india.in", "English": "https://bdl-india.in", "Hindi": "https://bdl-india.in/hi", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Bharat Electronics Limited (BEL), Bangalore", "Main URL": "https://bel-india.in", "English": "https://bel-india.in/homepage/", "Hindi": "https://bel-india.in/hi/%E0%A4%B9%E0%A5%8B%E0%A4%AE/", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Bharat Heavy Electricals Limited (BHEL)", "Main URL": "https://trichy.bhel.com", "English": "https://trichy.bhel.com", "Hindi": "https://trichy.bhel.com/index_hindi.html", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Bharat Heavy Electricals Limited (BHEL)", "Main URL": "https://www.bhel.com", "English": "https://www.bhel.com", "Hindi": "https://www.bhel.com/hi/", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Botanical Survey of India (BSI)", "Main URL": "https://bsi.gov.in", "English": "https://bsi.gov.in", "Hindi": "https://bsi.gov.in/lang/hi?curr_code=en", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Bureau of Energy Efficiency (BEE)", "Main URL": "https://beeindia.gov.in", "English": "https://beeindia.gov.in", "Hindi": "https://beeindia.gov.in/#/beejune/hi", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Bureau of Indian Standards (BIS)", "Main URL": "https://bis.gov.in", "English": "https://bis.gov.in", "Hindi": "https://www.bis.gov.in/?lang=hi", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Bureau of Police Research and Development (BPR&D)", "Main URL": "https://bprd.nic.in", "English": "https://bprd.nic.in", "Hindi": "https://bprd.nic.in/hi/", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "CITY CIVIL COURTS  HYDERABAD AND SECUNDERABAD", "Main URL": "https://hccc.dcourts.gov.in", "English": "https://hccc.dcourts.gov.in", "Hindi": "https://hccc.dcourts.gov.in/hi", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "CITY SMALL CAUSES COURT  -  HYDERABAD", "Main URL": "https://hcscc.dcourts.gov.in", "English": "https://hcscc.dcourts.gov.in", "Hindi": "https://hcscc.dcourts.gov.in/hi", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "CIVIL COURT HAZARIBAG", "Main URL": "https://hazaribag.dcourts.gov.in", "English": "https://hazaribag.dcourts.gov.in", "Hindi": "https://hazaribag.dcourts.gov.in/hi", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "CIVIL COURT KHUNTI", "Main URL": "https://khunti.dcourts.gov.in", "English": "https://khunti.dcourts.gov.in", "Hindi": "https://khunti.dcourts.gov.in/hi", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "CIVIL COURT RANCHI", "Main URL": "https://ranchi.dcourts.gov.in", "English": "https://ranchi.dcourts.gov.in", "Hindi": "https://ranchi.dcourts.gov.in/hi", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "CIVIL COURT, GARHWA", "Main URL": "https://garhwa.dcourts.gov.in", "English": "https://garhwa.dcourts.gov.in", "Hindi": "https://garhwa.dcourts.gov.in/hi", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "CIVIL COURT, GODDA", "Main URL": "https://godda.dcourts.gov.in", "English": "https://godda.dcourts.gov.in", "Hindi": "https://godda.dcourts.gov.in/hi", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "CIVIL COURT, LATEHAR", "Main URL": "https://latehar.dcourts.gov.in", "English": "https://latehar.dcourts.gov.in", "Hindi": "https://latehar.dcourts.gov.in/hi", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "CIVIL COURT, LOHARDAGA", "Main URL": "https://lohardaga.dcourts.gov.in", "English": "https://lohardaga.dcourts.gov.in", "Hindi": "https://lohardaga.dcourts.gov.in/hi", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "CIVIL COURTS , DHANBAD", "Main URL": "https://dhanbad.dcourts.gov.in", "English": "https://dhanbad.dcourts.gov.in", "Hindi": "https://dhanbad.dcourts.gov.in/hi/", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "CIVIL COURTS PALAMAU AT DALTONGANJ", "Main URL": "https://palamu.dcourts.gov.in", "English": "https://palamu.dcourts.gov.in", "Hindi": "https://palamu.dcourts.gov.in/hi/", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Cabinet Secretariat", "Main URL": "https://cabsec.gov.in", "English": "", "Hindi": "", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Cantonment Board, Agra", "Main URL": "https://agra.cantt.gov.in", "English": "https://agra.cantt.gov.in", "Hindi": "https://agra.cantt.gov.in/hi/", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Cantonment Board, Ahmedabad", "Main URL": "https://ahmedabad.cantt.gov.in", "English": "https://ahmedabad.cantt.gov.in", "Hindi": "https://ahmedabad.cantt.gov.in/hi/", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Cantonment Board, Ahmednagar", "Main URL": "https://ahmednagar.cantt.gov.in", "English": "https://ahmednagar.cantt.gov.in", "Hindi": "https://ahmednagar.cantt.gov.in/hi/", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "https://ahmednagar.cantt.gov.in/mr/", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Cantonment Board, Ajmer", "Main URL": "https://ajmer.cantt.gov.in", "English": "https://ajmer.cantt.gov.in", "Hindi": "https://ajmer.cantt.gov.in/hi/", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Cantonment Board, Almora", "Main URL": "https://almora.cantt.gov.in", "English": "https://almora.cantt.gov.in", "Hindi": "https://almora.cantt.gov.in/hi/", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Cantonment Board, Ambala", "Main URL": "https://ambala.cantt.gov.in", "English": "https://ambala.cantt.gov.in", "Hindi": "https://ambala.cantt.gov.in/hi/", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Cantonment Board, Amritsar", "Main URL": "https://amritsar.cantt.gov.in", "English": "https://amritsar.cantt.gov.in", "Hindi": "https://amritsar.cantt.gov.in/hi/", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Cantonment Board, Aurangabad", "Main URL": "https://aurangabad.cantt.gov.in", "English": "https://aurangabad.cantt.gov.in", "Hindi": "https://aurangabad.cantt.gov.in/hi/", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "https://aurangabad.cantt.gov.in/mr/", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Cantonment Board, Badamibagh", "Main URL": "https://badamibagh.cantt.gov.in", "English": "https://badamibagh.cantt.gov.in", "Hindi": "https://badamibagh.cantt.gov.in/hi/", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Capacity Building Commission", "Main URL": "https://cbc.gov.in", "English": "https://cbc.gov.in", "Hindi": "https://cbc.gov.in/hi", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Central Agricultural University, Imphal", "Main URL": "https://cau.ac.in", "English": "https://cau.ac.in", "Hindi": "https://cau-ac-in.translate.goog/?_x_tr_sl=auto&_x_tr_tl=hi&_x_tr_hl=en&_x_tr_pto=wapp", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Central Board of Secondary Education (CBSE)", "Main URL": "https://cbse.gov.in", "English": "https://cbse.gov.in", "Hindi": "https://cbse.gov.in", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Central Board of Secondary Education - Academics", "Main URL": "https://cbseacademic.nic.in", "English": "https://cbseacademic.nic.in", "Hindi": "https://cbseacademic.nic.in/index.html?lang=hindi", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Central Electricity Regulatory Commission (CERC)", "Main URL": "https://cercind.gov.in", "English": "https://cercind.gov.in", "Hindi": "https://cercind.gov.in/index_hin.html", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Central GST and Central Excise Commissionerate, Patna", "Main URL": "https://cexpatna.bih.nic.in", "English": "", "Hindi": "", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Central Ground Water Board (CGWB)", "Main URL": "https://cgwb.gov.in", "English": "https://cgwb.gov.in/en", "Hindi": "https://cgwb.gov.in/hi", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Central Hindi Training Institute", "Main URL": "https://chti.rajbhasha.gov.in", "English": "https://chti.rajbhasha.gov.in/?0101?22??", "Hindi": "https://chti.rajbhasha.gov.in/", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Central Information Commission (CIC)", "Main URL": "https://cic.gov.in", "English": "https://cic.gov.in", "Hindi": "https://cic.gov.in/hi/node", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Central Organisation for Railway Electrification (CORE)", "Main URL": "https://core.indianrailways.gov.in", "English": "https://core.indianrailways.gov.in", "Hindi": "https://core.indianrailways.gov.in/index.jsp?lang=1", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Central Railways", "Main URL": "https://cr.indianrailways.gov.in", "English": "https://cr.indianrailways.gov.in/index.jsp?lang=0", "Hindi": "https://cr.indianrailways.gov.in/?lang=1", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Central Secretariat Library (CSL)", "Main URL": "https://csl.nic.in", "English": "https://csl.nic.in", "Hindi": "https://csl.nic.in/hindi", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Central Vigilance Commission (CVC)", "Main URL": "https://cvc.gov.in", "English": "https://cvc.gov.in", "Hindi": "https://cvc.gov.in/hi/index.html", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Centre for High Technology (CHT), Noida", "Main URL": "https://cht.gov.in", "English": "https://cht.gov.in", "Hindi": "https://cht.gov.in/hi", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Chhattisgarh High Court", "Main URL": "https://highcourt.cg.gov.in", "English": "https://highcourt.cg.gov.in", "Hindi": "https://highcourt.cg.gov.in/h_default.html", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Chief Commissioner of Central GST and Customs, Visakhapatnam Zone", "Main URL": "https://cgstap.gov.in", "English": "https://cgstap.gov.in", "Hindi": "https://cgstap.gov.in/index_hindi.html", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Chittaranjan Locomotive Works (CLW)", "Main URL": "https://clw.indianrailways.gov.in", "English": "https://clw.indianrailways.gov.in", "Hindi": "https://clw.indianrailways.gov.in/index.jsp?lang=1", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Civil Aviation (MoCA)", "Main URL": "https://civilaviation.gov.in", "English": "https://civilaviation.gov.in", "Hindi": "https://www.civilaviation.gov.in/hi/node", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Committee Control and Supervision of Experiments on Animals", "Main URL": "https://ccsea.gov.in", "English": "https://ccsea.gov.in", "Hindi": "https://ccsea.gov.in/content/Hindi/Index.aspx", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Committee of Parliament on Official Language", "Main URL": "https://samiti.rajbhasha.gov.in", "English": "https://samiti.rajbhasha.gov.in/?0101?22??", "Hindi": "https://samiti.rajbhasha.gov.in/?0101?21??", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Composite Regional Centre for Persons with Disabilities (CRC), Davangere", "Main URL": "https://crcdavanagere.nic.in", "English": "https://crcdavanagere.nic.in", "Hindi": "https://crcdavanagere.nic.in/hi/", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Composite Regional Centre for Skill Development, Rehabilitation and Empowerment of Persons with Disabilities (CRC), Madurai", "Main URL": "https://crcmadurai.nic.in", "English": "https://crcmadurai.nic.in", "Hindi": "https://crcmadurai.nic.in/hi/", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Composite Regional Centre for Skill Development, Rehabilitation and Empowerment of Persons with Disabilities (CRC), Ranchi", "Main URL": "https://crcranchi.nic.in", "English": "https://crcranchi.nic.in", "Hindi": "https://crcranchi.nic.in", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Composite Regional Centre for Skill Development, Rehabilitation and Empowerment of Persons with Disabilities (CRC), Sikkim", "Main URL": "https://crcgangtok.nic.in", "English": "https://crcgangtok.nic.in", "Hindi": "https://crcgangtok.nic.in/hi/", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Comptroller and Auditor General (CAG) of India", "Main URL": "https://cag.gov.in", "English": "https://cag.gov.in", "Hindi": "https://cag.gov.in/hi", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Cooperation", "Main URL": "https://www.cooperation.gov.in", "English": "https://www.cooperation.gov.in", "Hindi": "https://www.cooperation.gov.in/", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Corporate Affairs (MCA)", "Main URL": "https://www.mca.gov.in", "English": "https://www.mca.gov.in", "Hindi": "https://www.mca.gov.in/content/mca/global/en/home.html", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Culture", "Main URL": "https://www.indiaculture.gov.in", "English": "https://www.indiaculture.gov.in", "Hindi": "https://www.indiaculture.gov.in/", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Customs Commissionerate Preventive, Amritsar", "Main URL": "https://amritsarcustoms.gov.in", "English": "https://amritsarcustoms.gov.in", "Hindi": "https://amritsarcustoms.gov.in/", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Customs Preventive Commissionerate, Central Board of Excise and Customs, Vijayawada", "Main URL": "https://apcustoms.gov.in", "English": "https://apcustoms.gov.in", "Hindi": "https://apcustoms.gov.in/NL/HindiHome.html", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Customs, Central Excise and Service Tax Commissionerate, Indore", "Main URL": "https://gstindore.gov.in", "English": "https://gstindore.gov.in", "Hindi": "https://gstindore.gov.in/hi/", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Defence (MoD)", "Main URL": "https://www.mod.gov.in", "English": "https://www.mod.gov.in", "Hindi": "https://www.mod.gov.in/hi", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Defence Investor Cell, New Delhi", "Main URL": "https://defenceinvestorcell.gov.in", "English": "https://defenceinvestorcell.gov.in", "Hindi": "https://defenceinvestorcell.gov.in/index_hindi.html", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Delhi High Court", "Main URL": "https://delhihighcourt.nic.in", "English": "https://delhihighcourt.nic.in", "Hindi": "https://delhihighcourt.nic.in/web/hi", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Delhi State Judicial Academy (DJA)", "Main URL": "https://judicialacademy.nic.in", "English": "https://judicialacademy.nic.in", "Hindi": "https://judicialacademy.nic.in/hi", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Delhi State Legal Services Authority", "Main URL": "https://dslsa.org", "English": "https://dslsa.org", "Hindi": "https://dslsa.org/hindi/", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Department for Promotion of Industry and Internal Trade (DPIIT)", "Main URL": "https://dpiit.gov.in", "English": "https://dpiit.gov.in", "Hindi": "https://xn--i1balk0dijf9ioanm5a6btjjddd6gkd9c3jbdsi15a5bhl.xn--11b7cb3a6a.xn--h2brj9c/hi", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Department of Animal Husbandry and Dairying (DoAHD)", "Main URL": "https://dahd.gov.in", "English": "https://dahd.gov.in", "Hindi": "https://dahd.gov.in/hi", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Department of Biotechnology (DBT)", "Main URL": "https://dbtindia.gov.in", "English": "https://dbtindia.gov.in", "Hindi": "https://dbtindia.gov.in/hi", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Department of Chemicals and Petro-Chemicals (DoCP)", "Main URL": "https://chemicals.gov.in", "English": "https://chemicals.gov.in", "Hindi": "https://chemicals.gov.in/hi", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Department of Commerce (DoC)", "Main URL": "https://commerce.gov.in", "English": "https://commerce.gov.in", "Hindi": "https://www.commerce.gov.in/hi/", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Department of Consumer Affairs (DoCA)", "Main URL": "https://doca.gov.in", "English": "https://doca.gov.in/index-eng.php", "Hindi": "https://doca.gov.in/hi/", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Department of Defence (DoD)", "Main URL": "https://www.mod.gov.in/dod", "English": "https://www.mod.gov.in/dod", "Hindi": "https://www.mod.gov.in/dod/hi", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Department of Defence Research and Development (DRDO)", "Main URL": "https://www.drdo.gov.in", "English": "https://www.drdo.gov.in", "Hindi": "https://www.drdo.gov.in/drdo/hi", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Department of Economic Affairs (DEA)", "Main URL": "https://dea.gov.in", "English": "https://dea.gov.in", "Hindi": "https://dea.gov.in/hi/monthly-economic-report-table", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Department of Empowerment of Persons with Disabilities (DEPWD)", "Main URL": "https://depwd.gov.in", "English": "https://depwd.gov.in", "Hindi": "https://depwd.gov.in/gallery/hindi_pakhwada/", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Department of Ex-Servicemen Welfare (DESW)", "Main URL": "https://www.desw.gov.in", "English": "https://www.desw.gov.in", "Hindi": "https://www.desw.gov.in/hi", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Department of Financial Services (DoFS)", "Main URL": "https://financialservices.gov.in", "English": "https://financialservices.gov.in", "Hindi": "https://financialservices.gov.in/beta/hi", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Department of Fisheries (DoF)", "Main URL": "https://dof.gov.in", "English": "https://dof.gov.in", "Hindi": "https://dof.gov.in/hi", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Department of Health and Family Welfare (DoHFW)", "Main URL": "https://mohfw.gov.in/?q=en/organisation/Departments-of-Health-and-Family-Welfare", "English": "", "Hindi": "https://mohfw.gov.in/hi/%E0%A4%B8%E0%A4%82%E0%A4%97%E0%A4%A0%E0%A4%A8/%E0%A4%B8%E0%A5%8D%E0%A4%B5%E0%A4%BE%E0%A4%B8%E0%A5%8D%E0%A4%A5%E0%A5%8D%E0%A4%AF-%E0%A4%94%E0%A4%B0-%E0%A4%AA%E0%A4%B0%E0%A4%BF%E0%A4%B5%E0%A4%BE%E0%A4%B0-%E0%A4%95%E0%A4%B2%E0%A5%8D%E0%A4%AF%E0%A4%BE%E0%A4%A3-%E0%A4%B5%E0%A4%BF%E0%A4%AD%E0%A4%BE%E0%A4%97", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Department of Higher Education (DoHE)", "Main URL": "https://www.education.gov.in/higher_education", "English": "https://www.education.gov.in/higher_education", "Hindi": "https://www.education.gov.in/higher_education_hi", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Department of Space", "Main URL": "https://www.dos.gov.in", "English": "https://www.dos.gov.in", "Hindi": "https://www.isro.gov.in/ISRO_HINDI/", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Development and Facilitation Office, Thrissur", "Main URL": "https://www.msmedithrissur.gov.in", "English": "https://www.msmedithrissur.gov.in", "Hindi": "https://msme.gov.in/hi", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Education (MoE)", "Main URL": "https://www.education.gov.in", "English": "https://www.education.gov.in/en", "Hindi": "https://www.education.gov.in/", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Election Commission of India", "Main URL": "https://eci.gov.in", "English": "https://eci.gov.in", "Hindi": "https://hindi.eci.gov.in/", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Embassy of India, Bogota, Colombia", "Main URL": "https://www.eoibogota.gov.in", "English": "https://www.eoibogota.gov.in", "Hindi": "https://www.eoibogota.gov.in", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "External Affairs (MEA)", "Main URL": "https://www.mea.gov.in", "English": "https://www.mea.gov.in", "Hindi": "https://www.mea.gov.in/index-hi.htm", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Finance (MoF)", "Main URL": "https://finmin.gov.in", "English": "https://finmin.gov.in", "Hindi": "https://finmin.nic.in/hi", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Gauhati High Court", "Main URL": "https://ghconline.gov.in", "English": "https://ghconline.gov.in", "Hindi": "https://www.eoibogota.gov.in", "Assamese": "https://ghconline.gov.in/as/", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Health and Family Welfare (MoHFW)", "Main URL": "https://mohfw.gov.in", "English": "https://mohfw.gov.in", "Hindi": "https://mohfw.gov.in/hi", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Heavy Industries (MoHI)", "Main URL": "https://heavyindustries.gov.in", "English": "https://heavyindustries.gov.in", "Hindi": "https://heavyindustries.gov.in/hi", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Home Affairs (MHA)", "Main URL": "https://mha.gov.in", "English": "https://xn--i1b5bzbybhfo5c8b4bxh.xn--11b7cb3a6a.xn--h2brj9c/en", "Hindi": "https://xn--i1b5bzbybhfo5c8b4bxh.xn--11b7cb3a6a.xn--h2brj9c/hi", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Indian Parliament", "Main URL": "https://sansad.in/poi", "English": "https://sansad.in/poi", "Hindi": "https://sansad.in/poi/hi", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Inter-State Council Secretariat", "Main URL": "https://interstatecouncil.gov.in", "English": "https://interstatecouncil.gov.in", "Hindi": "https://interstatecouncil.gov.in/?lang=hi", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Jharkhand High Court", "Main URL": "https://jharkhandhighcourt.nic.in", "English": "https://jharkhandhighcourt.nic.in", "Hindi": "https://jharkhandhighcourt.nic.in/hi/index.php", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Karnataka State Administrative Tribunal", "Main URL": "https://ksat.karnataka.gov.in", "English": "https://ksat.karnataka.gov.in", "Hindi": "https://ksat.karnataka.gov.in/ksatweb/public/homek", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Lok Sabha", "Main URL": "https://sansad.in/ls", "English": "https://sansad.in/ls", "Hindi": "https://sansad.in/ls/hi", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Madhya Pradesh High Court", "Main URL": "https://mphc.gov.in", "English": "https://mphc.gov.in", "Hindi": "https://mphc.gov.in/hi", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Ministry of External Affairs", "Main URL": "https://www.mea.gov.in", "English": "https://www.mea.gov.in", "Hindi": "https://www.mea.gov.in/index-hi.htm", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "NITI Aayog - National Institution for Transforming India", "Main URL": "https://niti.gov.in", "English": "https://niti.gov.in", "Hindi": "https://niti.gov.in/hi", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "National Human Rights Commission (NHRC), India", "Main URL": "https://nhrc.nic.in", "English": "https://nhrc.nic.in", "Hindi": "https://nhrc.nic.in/hi", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "National Institute for Empowerment of Persons with Multiple Disabilities", "Main URL": "https://niepmd.nic.in", "English": "https://niepmd.nic.in", "Hindi": "https://niepmd.nic.in/hi/", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "National Institute for the Empowerment of the Persons with Visual Disabilities", "Main URL": "https://niepvd.nic.in", "English": "https://niepvd.nic.in", "Hindi": "https://niepvd.nic.in/hi/", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Office of the Speaker, Lok Sabha", "Main URL": "https://sansad.in/ls/about/speaker", "English": "https://sansad.in/ls/about/speaker", "Hindi": "https://sansad.in/ls/hi/about/speaker", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Prime Minister's Office", "Main URL": "https://pmindia.gov.in", "English": "https://pmindia.gov.in", "Hindi": "https://pmindia.gov.in/hi/", "Assamese": "https://pmindia.gov.in/as/", "Bengali": "https://pmindia.gov.in/bn/", "Gujarati": "https://pmindia.gov.in/gu/", "Kannada": "https://pmindia.gov.in/kn/", "Malayalam": "https://pmindia.gov.in/ml/", "Marathi": "https://pmindia.gov.in/mr/", "Odia": "https://pmindia.gov.in/or/", "Punjabi": "https://pmindia.gov.in/pa/", "Tamil": "https://pmindia.gov.in/ta/", "Telugu": "https://pmindia.gov.in/te/", "Urdu": "https://pmindia.gov.in/ur/", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Rail Land Development Authority, New Delhi", "Main URL": "https://rlda.indianrailways.gov.in", "English": "https://rlda.indianrailways.gov.in", "Hindi": "https://rlda.indianrailways.gov.in/index.jsp?lang=1", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Rajya Sabha", "Main URL": "https://sansad.in/rs", "English": "https://sansad.in/rs", "Hindi": "https://sansad.in/rs/hi", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Supreme Court of India", "Main URL": "https://www.sci.gov.in", "English": "https://www.sci.gov.in", "Hindi": "https://www.sci.gov.in/hi/", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Vice President of India", "Main URL": "https://vicepresidentofindia.nic.in", "English": "https://vicepresidentofindia.nic.in", "Hindi": "https://vicepresidentofindia.nic.in", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "Warehousing Development and Regulatory Authority (WDRA)", "Main URL": "https://wdra.gov.in", "English": "https://wdra.gov.in", "Hindi": "https://wdra.gov.in/hi/web/wdra/home", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
+            { "Organization": "e-Committee, Supreme Court of India", "Main URL": "https://ecommitteesci.gov.in", "English": "https://ecommitteesci.gov.in", "Hindi": "https://ecommitteesci.gov.in/hi/", "Assamese": "https://ecommitteesci.gov.in/as/", "Bengali": "https://ecommitteesci.gov.in/bn/", "Gujarati": "https://ecommitteesci.gov.in/gu/", "Kannada": "https://ecommitteesci.gov.in/kn/", "Malayalam": "https://ecommitteesci.gov.in/ml/", "Marathi": "https://ecommitteesci.gov.in/mr/", "Odia": "https://ecommitteesci.gov.in/or/", "Punjabi": "https://ecommitteesci.gov.in/pa/", "Tamil": "https://ecommitteesci.gov.in/ta/", "Telugu": "https://ecommitteesci.gov.in/te/", "Urdu": "", "Khasi": "https://ecommitteesci.gov.in/ks/", "Mizo": "https://ecommitteesci.gov.in/mz/", "Nepali": "https://ecommitteesci.gov.in/ne/" },
+            { "Organization": "Google", "Main URL": "https://google.com", "English": "https://www.google.co.in/search?hl=en", "Hindi": "https://www.google.co.in/search?hl=hi", "Assamese": "https://www.google.co.in/search?hl=as", "Bengali": "https://www.google.co.in/search?hl=bn", "Gujarati": "https://www.google.co.in/search?hl=gu", "Kannada": "https://www.google.co.in/search?hl=kn", "Malayalam": "https://www.google.co.in/search?hl=ml", "Marathi": "https://www.google.co.in/search?hl=mr", "Odia": "https://www.google.co.in/search?hl=or", "Punjabi": "https://www.google.co.in/search?hl=pa", "Tamil": "https://www.google.co.in/search?hl=ta", "Telugu": "https://www.google.co.in/search?hl=te", "Urdu": "https://www.google.co.in/search?hl=ur", "Khasi": "https://www.google.co.in/search?hl=kha", "Mizo": "https://www.google.co.in/search?hl=lus", "Nepali": "https://www.google.co.in/search?hl=ne" }
+        ];
 
-      <div class="top-text">
+        const tableBody = document.getElementById('table-body');
+        const headers = Object.keys(tableData[0]);
 
-       
-    </section>
-  </section>
+        // This function creates the content for a cell (link + copy button)
+        function createCellContent(url) {
+            if (!url || url.trim() === '') {
+                return '<span class="text-gray-400">N/A</span>';
+            }
+            // Ensure URL has a protocol
+            const fullUrl = url.startsWith('http') ? url : `https://${url}`;
+            
+            return `
+                <div class="flex items-center space-x-2">
+                    <a href="${fullUrl}" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 hover:underline whitespace-nowrap overflow-hidden text-ellipsis">${url}</a>
+                    <button onclick="copyToClipboard('${fullUrl}', this)" class="copy-btn p-1.5 rounded-md bg-gray-200 hover:bg-gray-300 text-gray-600 flex-shrink-0">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                        </svg>
+                    </button>
+                </div>
+            `;
+        }
+        
+        // This function populates the table with data
+        function populateTable() {
+            tableData.forEach(rowData => {
+                const row = document.createElement('tr');
+                row.className = 'hover:bg-gray-50';
 
+                headers.forEach((header, index) => {
+                    const cell = document.createElement('td');
+                    cell.className = 'px-6 py-4 whitespace-normal text-sm';
+                    const cellData = rowData[header];
+
+                    if (header === 'Organization') {
+                        // Make the first column sticky
+                        cell.className += ' font-medium text-gray-900 sticky left-0 bg-white hover:bg-gray-50 z-0';
+                        cell.innerHTML = `<div class="w-full break-words">${cellData}</div>`;
+                    } else {
+                        cell.innerHTML = createCellContent(cellData);
+                    }
+                    row.appendChild(cell);
+                });
+                tableBody.appendChild(row);
+            });
+        }
+
+        // This function copies text to the clipboard and shows a notification
+        function copyToClipboard(text, buttonElement) {
+            // Use the Clipboard API if available, with a fallback
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(text).then(() => {
+                    showNotification();
+                }).catch(err => {
+                    // Fallback for cases where writeText fails
+                    fallbackCopyTextToClipboard(text);
+                });
+            } else {
+                // Fallback for older browsers or insecure contexts
+                fallbackCopyTextToClipboard(text);
+            }
+        }
+
+        function fallbackCopyTextToClipboard(text) {
+            const textArea = document.createElement("textarea");
+            textArea.value = text;
+            
+            // Avoid scrolling to bottom
+            textArea.style.top = "0";
+            textArea.style.left = "0";
+            textArea.style.position = "fixed";
+
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+
+            try {
+                const successful = document.execCommand('copy');
+                if (successful) {
+                    showNotification();
+                }
+            } catch (err) {
+                console.error('Fallback: Oops, unable to copy', err);
+            }
+
+            document.body.removeChild(textArea);
+        }
+
+        // This function shows the "Copied!" notification
+        function showNotification() {
+            const notification = document.getElementById('copy-notification');
+            notification.classList.remove('opacity-0');
+            setTimeout(() => {
+                notification.classList.add('opacity-0');
+            }, 2000); // Notification disappears after 2 seconds
+        }
+
+        // Initialize the table when the page loads
+        document.addEventListener('DOMContentLoaded', populateTable);
+    </script>
 </body>
 </html>
