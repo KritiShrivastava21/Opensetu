@@ -4,6 +4,124 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>OpenSetu Privacy Policy</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+
+    <style>
+    /* Menu bar styling */
+    .top-menu {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      background: #f8f9fa;
+      padding: 12px 40px;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .top-menu a {
+      font-family: 'Inter', sans-serif;
+      color: #333;
+      text-decoration: none;
+      margin-left: 25px;
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+    .top-menu a:hover {
+      color: #007BFF;
+    }
+
+    /* Hamburger button */
+    .menu-toggle {
+      display: none;
+      font-size: 1.5em;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #333;
+    }
+
+    /* Side menu */
+    .side-menu {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      top: 0;
+      right: 0;
+      background-color: #f8f9fa;
+      overflow-x: hidden;
+      transition: 0.3s;
+      padding-top: 60px;
+      z-index: 2000;
+    }
+    .side-menu a {
+      display: block;
+      padding: 10px 20px;
+      color: #333;
+      text-decoration: none;
+      font-family: 'Inter', sans-serif;
+      font-weight: 500;
+    }
+    .side-menu a:hover {
+      color: #007BFF;
+    }
+    .side-menu .close-btn {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      font-size: 2em;
+      text-decoration: none;
+      color: #333;
+    }
+
+    /* Responsive rules */
+    @media (max-width: 768px) {
+      .top-menu a {
+        display: none;
+      }
+      .menu-toggle {
+        display: block;
+        margin-left: auto;
+      }
+    }
+  </style>
+</head>
+<body class="page">
+
+  <!-- Top Menu -->
+  <nav class="top-menu">
+    <a href="index.html">Home</a>
+    <a href="about.html">About Us</a>
+    <a href="beta.html">Legal</a>
+    <a href="documentation.html">Documentation</a>
+    <a href="domain.html">Domain List</a>
+    <button class="menu-toggle" onclick="openMenu()"><i class="fas fa-bars"></i></button>
+  </nav>
+
+  <!-- Side Menu -->
+  <div id="sideMenu" class="side-menu">
+    <a href="javascript:void(0)" class="close-btn" onclick="closeMenu()">&times;</a>
+    <a href="index.html">Home</a>
+    <a href="about.html">About Us</a>
+    <a href="beta.html">Legal</a>
+    <a href="documentation.html">Documentation</a>
+    <a href="domain.html">Domain List</a>
+  </div>
+
+  <script>
+function openMenu() {
+  document.getElementById("sideMenu").style.width = "250px"; // Adjust width as needed
+}
+
+function closeMenu() {
+  document.getElementById("sideMenu").style.width = "0";
+}
+</script>
+
+
   <style>
     body {
       margin: 0;
@@ -20,7 +138,7 @@
       position: absolute;
       top: 60px;
       width: 100%;
-      height: 1260px;
+      height: 1250px;
       background: white;
       transform: skewY(-5deg);
       z-index: 0;
@@ -158,10 +276,9 @@
       <h1 class="about-heading">Privacy Policy</h1>
 
       <div class="top-text">
-        <p class="highlight">Effective Date: [xyz]</p>
 
         <h2>What We Collect</h2>
-        <p>Nothing. <br>We do not log, store, or monitor any of your DNS queries, IP addresses, or usage patterns. OpenSetu operates as a stateless resolver — we process your request and forget it instantly.</p>
+        <p>Nothing. <br>We do not log, store, or monitor any of your DNS queries, IP addresses, or usage patterns. OpenSetu operates as a stateless resolver. We process your request and forget it instantly.</p>
 
         <h2>Monetization</h2>
         <p>We do not monetize this service.<br>No ads.<br>No data sales.<br>No hidden trackers.<br>OpenSetu is free, and always will be.</p>
@@ -170,20 +287,17 @@
         <p>OpenSetu is an open protocol. Anyone can build and run their own version. We encourage developers, communities, and governments to set up their own resolvers to serve local needs.</p>
 
         <h2>No User Accounts</h2>
-        <p>We don’t have user logins or profiles.<br>We don’t require signups or personal information.<br>There is nothing to identify you — and that’s intentional.</p>
+        <p>We don’t have user logins or profiles.<br>We don’t require signups or personal information.<br>There is nothing to identify you, and that’s intentional.</p>
 
         <h2>Anonymous by Architecture</h2>
-        <p>OpenSetu was designed with digital sovereignty and vernacular access in mind. We reject the centralized model of surveillance-based internet infrastructure. Our only job is to translate domain names — not to observe or analyze who you are.</p>
+        <p>OpenSetu was designed with digital sovereignty and vernacular access in mind. We reject the centralized model of surveillance-based internet infrastructure. Our only job is to translate domain names. Not to observe or analyze who you are.</p>
 
         <h2>Legal Compliance</h2>
         <p>As a resolver, we only redirect domain name requests. We don’t host or serve content, and we don’t control the content that others publish under their domains. We remain compliant with all applicable laws while safeguarding user freedom and privacy.</p>
 
-        <h2>Contact</h2>
-        <p>If you have questions, suggestions, or want to contribute to OpenSetu, write to us at:<br>📧 [xyz]</p>
-      </div>
+        </div>
     </section>
   </section>
 
 </body>
 </html>
-
