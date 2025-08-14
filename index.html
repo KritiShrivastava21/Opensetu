@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>OpenSetu Hero</title>
+  <title>OpenSetu</title>
   <link rel="stylesheet" href="styles.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
@@ -144,8 +144,8 @@
 </script>
 
 
-      <button class="btn-primary">Watch how it works →</button>
-    </div>
+     <button class="btn-primary" onclick="scrollToVideo()">Watch how it works →</button>
+</div>
 
     <div class="hero-image">
       <img src="img1.png" alt="Descriptive text" />
@@ -227,16 +227,17 @@
 </section>
 
 
-  <section class="last info-section">
+<section id="how-to-get-started" class="last info-section">
   <div class="container center-content">
     <h2 class="section-title">How to Get Started</h2>
     <p>One Change. A Whole New Internet.</p>
 
     <div class="video-wrapper">
-      <video src="your-video.mp4" controls></video>
+      <video id="get-started-video" src="your-video.mp4" controls></video>
     </div>
   </div>
 </section>
+
 
 
 
@@ -313,4 +314,15 @@
   
 
 </body>
+
+<script>
+function scrollToVideo() {
+  const section = document.getElementById('how-to-get-started');
+  section.scrollIntoView({ behavior: 'smooth' });
+
+  const video = document.getElementById('get-started-video');
+  video.play();
+}
+</script>
+
 </html>
