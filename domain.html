@@ -1,92 +1,174 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Domain Links</title>
+    <title>Domain Link Hub</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <style>
+        /* Base styles */
         body {
             font-family: 'Inter', sans-serif;
+            background-color: #F7F9FB; /* Base background color */
         }
-        /* Style for the copy button */
-        .copy-btn {
-            transition: all 0.2s ease-in-out;
+
+        /* Menu bar styling */
+        .top-menu {
+          display: flex;
+          justify-content: flex-end;
+          align-items: center;
+          background: #f8f9fa;
+          padding: 12px 40px;
+          border-bottom: 1px solid rgba(0,0,0,0.05);
+          position: sticky;
+          top: 0;
+          z-index: 1000;
         }
-        .copy-btn:active {
-            transform: scale(0.95);
+        .top-menu a {
+          font-family: 'Inter', sans-serif;
+          color: #333;
+          text-decoration: none;
+          margin-left: 25px;
+          font-weight: 500;
+          transition: color 0.2s ease;
         }
-        /* Custom scrollbar for better aesthetics */
-        .custom-scrollbar::-webkit-scrollbar {
-            width: 8px;
-            height: 8px;
+        .top-menu a:hover {
+          color: #007BFF;
         }
-        .custom-scrollbar::-webkit-scrollbar-track {
-            background: #f1f1f1;
-            border-radius: 10px;
+
+        /* Hamburger button */
+        .menu-toggle {
+          display: none;
+          font-size: 1.5em;
+          background: none;
+          border: none;
+          cursor: pointer;
+          color: #333;
         }
-        .custom-scrollbar::-webkit-scrollbar-thumb {
-            background: #888;
-            border-radius: 10px;
+
+        /* Side menu */
+        .side-menu {
+          height: 100%;
+          width: 0;
+          position: fixed;
+          top: 0;
+          right: 0;
+          background-color: #f8f9fa;
+          overflow-x: hidden;
+          transition: 0.3s;
+          padding-top: 60px;
+          z-index: 2000;
         }
-        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-            background: #555;
+        .side-menu a {
+          display: block;
+          padding: 10px 20px;
+          color: #333;
+          text-decoration: none;
+          font-family: 'Inter', sans-serif;
+          font-weight: 500;
         }
-        /* Added for table layout */
-        .table-fixed-layout {
-            table-layout: fixed;
-            width: 100%;
+        .side-menu a:hover {
+          color: #007BFF;
+        }
+        .side-menu .close-btn {
+          position: absolute;
+          top: 15px;
+          right: 20px;
+          font-size: 2em;
+          text-decoration: none;
+          color: #333;
+        }
+
+        /* Responsive rules */
+        @media (max-width: 768px) {
+          .top-menu a {
+            display: none;
+          }
+          .menu-toggle {
+            display: block;
+            margin-left: auto;
+          }
+        }
+
+        /* 🔹 ADDED: Force all table columns to 30px width */
+        table th, table td {
+            width: 300px; /* <-- Column width set here */
+            max-width: 300px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
         }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
+<body class="page">
 
-    <div class="container mx-auto p-4 sm:p-6 lg:p-8">
-        <header class="text-center mb-8">
-            <h1 class="text-3xl sm:text-4xl font-bold text-gray-900">Domain Links</h1>
-        </header>
+  <!-- Top Menu -->
+  <nav class="top-menu">
+    <a href="index.html">Home</a>
+    <a href="about.html">About Us</a>
+    <a href="beta.html">Legal</a>
+    <a href="documentation.html">Documentation</a>
+    <a href="domain.html">Domain List</a>
+    <button class="menu-toggle" onclick="openMenu()"><i class="fas fa-bars"></i></button>
+  </nav>
 
-        <!-- Table container with horizontal scroll on small screens -->
-        <div class="overflow-x-auto bg-white rounded-lg shadow-md custom-scrollbar">
-            <table class="min-w-full divide-y divide-gray-200 table-fixed-layout">
-                <thead class="bg-gray-100">
-                    <tr>
-                        <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider sticky left-0 bg-gray-100 z-10 w-[320px]">Organization</th>
-                        <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider w-[350px]">Main URL</th>
-                        <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider w-[350px]">English</th>
-                        <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider w-[350px]">Hindi</th>
-                        <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider w-[350px]">Assamese</th>
-                        <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider w-[350px]">Bengali</th>
-                        <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider w-[350px]">Gujarati</th>
-                        <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider w-[350px]">Kannada</th>
-                        <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider w-[350px]">Malayalam</th>
-                        <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider w-[350px]">Marathi</th>
-                        <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider w-[350px]">Odia</th>
-                        <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider w-[350px]">Punjabi</th>
-                        <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider w-[350px]">Tamil</th>
-                        <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider w-[350px]">Telugu</th>
-                        <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider w-[350px]">Urdu</th>
-                        <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider w-[350px]">Khasi</th>
-                        <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider w-[350px]">Mizo</th>
-                        <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider w-[350px]">Nepali</th>
-                    </tr>
-                </thead>
-                <tbody id="table-body" class="bg-white divide-y divide-gray-200">
-                    <!-- Table rows will be inserted here by JavaScript -->
-                </tbody>
-            </table>
+  <!-- Side Menu -->
+  <div id="sideMenu" class="side-menu">
+    <a href="javascript:void(0)" class="close-btn" onclick="closeMenu()">&times;</a>
+    <a href="index.html">Home</a>
+    <a href="about.html">About Us</a>
+    <a href="beta.html">Legal</a>
+    <a href="documentation.html">Documentation</a>
+    <a href="domain.html">Domain List</a>
+  </div>
+
+    <div class="content-wrapper">
+        <div class="container mx-auto p-4 sm:p-6 lg:p-8" style=" max-width: 100vw;">
+            <header class="text-center mb-8">
+                <h1 class="text-3xl sm:text-4xl font-bold text-gray-900">Domain Links</h1>
+            </header>
+
+            <div class="overflow-auto shadow-md custom-scrollbar" style="max-height:80vh ; max-width: 100%;">
+                <table class="min-w-full divide-y divide-gray-200">
+                    <thead class="bg-gray-100 sticky top-0 z-20">
+                        <tr>
+                            <th scope="col" class="sticky left-0 bg-gray-100 z-30 px-6 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider">Organization</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider">Main URL</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider">English</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider">Hindi</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider">Assamese</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider">Bengali</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider">Gujarati</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider">Kannada</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider">Malayalam</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider">Marathi</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider">Odia</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider">Punjabi</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider">Tamil</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider">Telugu</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider">Urdu</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider">Khasi</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider">Mizo</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider">Nepali</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table-body" class="bg-white divide-y divide-gray-200">
+                    </tbody>
+                </table>
+            </div>
+            
+            <div id="copy-notification" class="fixed bottom-5 right-5 bg-green-500 text-white py-2 px-4 rounded-lg shadow-lg opacity-0 transition-opacity duration-300">
+                Link copied to clipboard!
+            </div>
         </div>
-        
-        <!-- Floating notification for copy action -->
-        <div id="copy-notification" class="fixed bottom-5 right-5 bg-green-500 text-white py-2 px-4 rounded-lg shadow-lg opacity-0 transition-opacity duration-300">
-            Link copied to clipboard!
-        </div>
-
     </div>
 
     <script>
-        // Data provided by the user
+        function openMenu() { document.getElementById("sideMenu").style.width = "250px"; }
+        function closeMenu() { document.getElementById("sideMenu").style.width = "0"; }
+
         const tableData = [
             { "Organization": "UIDAI (Aadhaar)", "Main URL": "https://uidai.gov.in", "English": "https://uidai.gov.in/en/", "Hindi": "https://uidai.gov.in/hi/", "Assamese": "https://uidai.gov.in/as/", "Bengali": "https://uidai.gov.in/bn/", "Gujarati": "https://uidai.gov.in/gu/", "Kannada": "https://uidai.gov.in/kn/", "Malayalam": "https://uidai.gov.in/ml/", "Marathi": "https://uidai.gov.in/mr/", "Odia": "https://uidai.gov.in/or/", "Punjabi": "https://uidai.gov.in/pa/", "Tamil": "https://uidai.gov.in/ta/", "Telugu": "https://uidai.gov.in/te/", "Urdu": "https://uidai.gov.in/ur/", "Khasi": "", "Mizo": "", "Nepali": "" },
             { "Organization": "Income-Tax e-Filing", "Main URL": "https://www.incometax.gov.in", "English": "https://www.incometax.gov.in/iec/foportal/", "Hindi": "https://www.incometax.gov.in/iec/foportal/hi", "Assamese": "", "Bengali": "", "Gujarati": "", "Kannada": "", "Malayalam": "", "Marathi": "", "Odia": "", "Punjabi": "", "Tamil": "", "Telugu": "", "Urdu": "", "Khasi": "", "Mizo": "", "Nepali": "" },
@@ -262,27 +344,22 @@
         const tableBody = document.getElementById('table-body');
         const headers = Object.keys(tableData[0]);
 
-        // This function creates the content for a cell (link + copy button)
         function createCellContent(url) {
             if (!url || url.trim() === '') {
                 return '<span class="text-gray-400">N/A</span>';
             }
-            // Ensure URL has a protocol
             const fullUrl = url.startsWith('http') ? url : `https://${url}`;
-            
             return `
                 <div class="flex items-center space-x-2">
-                    <a href="${fullUrl}" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 hover:underline whitespace-nowrap overflow-hidden text-ellipsis">${url}</a>
+                    <a href="${fullUrl}" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 hover:underline">${url}</a>
                     <button onclick="copyToClipboard('${fullUrl}', this)" class="copy-btn p-1.5 rounded-md bg-gray-200 hover:bg-gray-300 text-gray-600 flex-shrink-0">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
                         </svg>
                     </button>
-                </div>
-            `;
+                </div>`;
         }
         
-        // This function populates the table with data
         function populateTable() {
             tableData.forEach(rowData => {
                 const row = document.createElement('tr');
@@ -294,8 +371,7 @@
                     const cellData = rowData[header];
 
                     if (header === 'Organization') {
-                        // Make the first column sticky
-                        cell.className += ' font-medium text-gray-900 sticky left-0 bg-white hover:bg-gray-50 z-0';
+                        cell.className += ' font-medium text-gray-900 sticky left-0 bg-white hover:bg-gray-50 z-10';
                         cell.innerHTML = `<div class="w-full break-words">${cellData}</div>`;
                     } else {
                         cell.innerHTML = createCellContent(cellData);
@@ -306,18 +382,10 @@
             });
         }
 
-        // This function copies text to the clipboard and shows a notification
-        function copyToClipboard(text, buttonElement) {
-            // Use the Clipboard API if available, with a fallback
+        function copyToClipboard(text) {
             if (navigator.clipboard && window.isSecureContext) {
-                navigator.clipboard.writeText(text).then(() => {
-                    showNotification();
-                }).catch(err => {
-                    // Fallback for cases where writeText fails
-                    fallbackCopyTextToClipboard(text);
-                });
+                navigator.clipboard.writeText(text).then(showNotification).catch(() => fallbackCopyTextToClipboard(text));
             } else {
-                // Fallback for older browsers or insecure contexts
                 fallbackCopyTextToClipboard(text);
             }
         }
@@ -325,38 +393,30 @@
         function fallbackCopyTextToClipboard(text) {
             const textArea = document.createElement("textarea");
             textArea.value = text;
-            
-            // Avoid scrolling to bottom
+            textArea.style.position = "fixed";
             textArea.style.top = "0";
             textArea.style.left = "0";
-            textArea.style.position = "fixed";
-
             document.body.appendChild(textArea);
             textArea.focus();
             textArea.select();
-
             try {
-                const successful = document.execCommand('copy');
-                if (successful) {
+                if (document.execCommand('copy')) {
                     showNotification();
                 }
             } catch (err) {
-                console.error('Fallback: Oops, unable to copy', err);
+                console.error('Fallback: Unable to copy', err);
             }
-
             document.body.removeChild(textArea);
         }
 
-        // This function shows the "Copied!" notification
         function showNotification() {
             const notification = document.getElementById('copy-notification');
             notification.classList.remove('opacity-0');
             setTimeout(() => {
                 notification.classList.add('opacity-0');
-            }, 2000); // Notification disappears after 2 seconds
+            }, 2000);
         }
 
-        // Initialize the table when the page loads
         document.addEventListener('DOMContentLoaded', populateTable);
     </script>
 </body>
